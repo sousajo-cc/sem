@@ -2,6 +2,9 @@ package com.napier.sem;
 
 import java.util.List;
 
+/**
+ * The type Country report.
+ */
 public class CountryReport implements Report {
     @Override
     public void largestToSmallest() {

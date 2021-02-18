@@ -4,9 +4,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * The type Connection manager.
+ */
 public class ConnectionManager {
     private Connection con;
 
+    /**
+     * Gets connection.
+     *
+     * @return the connection
+     */
     public Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

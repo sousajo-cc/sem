@@ -7,6 +7,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Country dao.
+ */
 public class CountryDAOImpl implements CountryDAO {
     @Override
     public List<Country> getAllCountriesPopFromLargestToSmallest() {

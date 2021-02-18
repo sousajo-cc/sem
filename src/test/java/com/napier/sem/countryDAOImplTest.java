@@ -9,8 +9,17 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * The type Country dao impl test.
+ */
 class countryDAOImplTest {
+    /**
+     * The Country.
+     */
     private CountryDAO country;
+    /**
+     * The Country list ret.
+     */
     private List<Country> countryListRet;
 
     @org.junit.jupiter.api.BeforeEach
@@ -40,6 +49,9 @@ class countryDAOImplTest {
     void tearDown() {
     }
 
+    /**
+     * Get all countries pop from largest to smallest test.
+     */
     @Test
     public void getAllCountriesPopFromLargestToSmallestTest(){
         Mockito.when(country.getAllCountriesPopFromLargestToSmallest())
