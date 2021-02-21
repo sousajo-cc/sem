@@ -10,7 +10,7 @@ Organization.
 Primary task.
 
 ### Preconditions
-Database contains country data.
+Database contains population data.
 
 ### Success End Condition
 A report is available for the organization to provide information on either the top N populated countries in a continent, the top N populated countries in a region, or the top N populated countries in the world, where N is provided by the user.
@@ -29,10 +29,10 @@ A request for this specific report is sent to the organization.
 2. Organization worker triggers the report generation to extract either the top N populated country in a continent, a region or the world, where N is provided by the user.
 3. Organization worker provides report to organization.
 ### EXTENSIONS
-2.** Data does not exist**:
-    1. Organization worker informs the organization no data exist.
+2. ** Data does not exist**:
+    i. Organization worker informs the organization no data exist.
 ### SUB-VARIATIONS
 None.
 
 ### SCHEDULE
-** DUE DATE**: Release 1.0
+** DUE DATE **: Release 1.0
