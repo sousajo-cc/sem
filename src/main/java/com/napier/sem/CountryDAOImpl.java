@@ -13,18 +13,34 @@ import java.util.List;
 public class CountryDAOImpl implements CountryDAO {
     @Override
     public List<Country> getAllCountriesPopFromLargestToSmallest() {
-        List<Country> countries = new ArrayList<>();
+        String strSelect = "select * from country order by Population desc";
+        return getCountries(strSelect);
+    }
 
+    @Override
+    public List<Country> getAllCountriesPopFromLargestToSmallestInContinent(Continent continent) {
+        String strSelect =
+                    "select * from country where LOWER(Continent) = '" + continent.name.toLowerCase() +"' order by Population desc";
+        return getCountries(strSelect);
+    }
+
+
+    @Override
+    public List<Country> getAllCountriesPopFromLargestToSmallestInRegion(Region region) {
+        String strSelect =
+                "select * from country where LOWER(REPLACE(Region,' ', '')) = '" + region.name.toLowerCase() +"' order by Population desc";
+        return getCountries(strSelect);
+    }
+
+    public List<Country> getCountries(String queryString){
+        List<Country> countries = new ArrayList<>();
         ConnectionManager dbCon = new ConnectionManager();
         Connection con = dbCon.getConnection();
 
         try {
             Statement stmt = con.createStatement();
 
-            String strSelect =
-                    "select * from country order by Population desc";
-
-            ResultSet results = stmt.executeQuery(strSelect);
+            ResultSet results = stmt.executeQuery(queryString);
 
             while (results.next()) {
                 Country curr_country = new Country(results.getString("Code"), results.getString("Name"),
@@ -43,3 +59,5 @@ public class CountryDAOImpl implements CountryDAO {
         return countries;
     }
 }
+
+
