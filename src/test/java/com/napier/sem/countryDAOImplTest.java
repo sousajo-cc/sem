@@ -21,6 +21,7 @@ class countryDAOImplTest {
      * The Country list ret.
      */
     private List<Country> countryListRet;
+    private List<Country> countryContListRet;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
@@ -43,6 +44,25 @@ class countryDAOImplTest {
         );
         countryListRet = new ArrayList<>();
         countryListRet.add(countryMockedReturn);
+
+        Country countryContinentMockedReturn = new Country("IRL",
+                "Ireland",
+                "",
+                "",
+                16.0,
+                0,
+                0,
+                0.0,
+                0.0,
+                0.0,
+                "",
+                "",
+                "",
+                0,
+                ""
+        );
+        countryContListRet = new ArrayList<>();
+        countryContListRet.add(countryContinentMockedReturn);
     }
 
     @org.junit.jupiter.api.AfterEach
@@ -57,7 +77,16 @@ class countryDAOImplTest {
         Mockito.when(country.getAllCountriesPopFromLargestToSmallest())
                 .thenReturn(countryListRet);
         List<Country> ret = country.getAllCountriesPopFromLargestToSmallest();
-        System.out.println(ret);
         assertEquals(ret.get(0).getContinent().toLowerCase(), "oceania");
+    }
+
+    @Test
+    public void getAllCountriesPopFromLargestToSmallestInContinentTest(){
+        Continent c = new Continent("europe");
+
+        Mockito.when(country.getAllCountriesPopFromLargestToSmallestInContinent(c))
+                .thenReturn(countryContListRet);
+        List<Country> ret = country.getAllCountriesPopFromLargestToSmallestInContinent(c);
+        assertEquals(ret.get(0).getName().toLowerCase(), "ireland");
     }
 }
