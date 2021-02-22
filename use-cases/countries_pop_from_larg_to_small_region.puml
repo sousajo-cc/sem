@@ -5,11 +5,11 @@ actor OW as "Organization Worker"
 rectangle Database
 
 rectangle "Organization System" {
-    usecase UC3 as "Get all counties in a region
+    usecase UC1c as "Get all counties in a region
     organised by largest to smallest"
 
-    OW - UC3
-    UC3 - Database
+    OW - UC1c
+    UC1c - Database
 }
 
 @enduml

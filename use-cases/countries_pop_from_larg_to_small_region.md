@@ -1,4 +1,4 @@
-# USE CASE: 3 Produce a Report on the population of all countries in region organised by largest population to the smallest
+# USE CASE: 1c Produce a Report on the population of all countries in region organised by largest population to the smallest
 
 ## CHARACTERISTIC INFORMATION
 

@@ -1,4 +1,4 @@
-# USE CASE: 2 Produce a Report on the population of all countries in Continent organised by largest population to the smallest
+# USE CASE: 1b Produce a Report on the population of all countries in Continent organised by largest population to the smallest
 
 ## CHARACTERISTIC INFORMATION
 
