@@ -14,4 +14,5 @@ public interface CountryDAO {
     List<Country> getAllCountriesPopFromLargestToSmallest();
     List<Country> getAllCountriesPopFromLargestToSmallestInContinent(Continent continent);
     List<Country> getAllCountriesPopFromLargestToSmallestInRegion(Region region);
+    List<Country> getTopNCountriesPopFromLargestToSmallest(numberOfCountries topN);
 }

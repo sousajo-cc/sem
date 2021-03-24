@@ -7,7 +7,9 @@ public interface Report {
     void largestToSmallest();
     void largestToSmallestInContinent(Continent name);
     void largestToSmallestInRegion(Region name);
+    void largestToSmallestPartial(numberOfCountries topN);
     void generateReport();
     void generateReport(Continent name);
     void generateReport(Region name);
+    void generateReport(numberOfCountries topN);
 }
