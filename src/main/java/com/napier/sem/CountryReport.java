@@ -34,6 +34,15 @@ public class CountryReport implements Report {
     }
 
     @Override
+    public void largestToSmallestPartial(numberOfCountries topN) {
+        CountryDAO countryDao = new CountryDAOImpl();
+        List<Country> countries = countryDao.getTopNCountriesPopFromLargestToSmallest(topN);
+        for (Country c:countries){
+            System.out.println(c.toString());
+        }
+    }
+
+    @Override
     public void generateReport() {
         largestToSmallest();
     }
@@ -47,4 +56,10 @@ public class CountryReport implements Report {
     public void generateReport(Region region) {
         largestToSmallestInRegion(region);
     }
+
+    @Override
+    public void generateReport(numberOfCountries topN) {
+        largestToSmallestPartial(topN);
+    }
+
 }

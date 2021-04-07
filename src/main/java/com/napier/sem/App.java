@@ -27,17 +27,18 @@ public class App {
             }
 
             @Override
-            public void createReportFor(int topN) {
+            public void createReportFor(numberOfCountries topN) {
+                Report r = new CountryReport();
+                r.generateReport(topN);
+            }
+
+            @Override
+            public void createReportFor(Continent name, numberOfCountries topN) {
                 // will be implemented next sprint
             }
 
             @Override
-            public void createReportFor(Continent name, int topN) {
-                // will be implemented next sprint
-            }
-
-            @Override
-            public void createReportFor(Region name, int topN) {
+            public void createReportFor(Region name, numberOfCountries topN) {
                 // will be implemented next sprint
             }
         },
@@ -49,9 +50,9 @@ public class App {
         public abstract void createReportFor();
         public abstract void createReportFor(Continent name);
         public abstract void createReportFor(Region name);
-        public abstract void createReportFor(int topN);
-        public abstract void createReportFor(Continent name, int topN);
-        public abstract void createReportFor(Region name, int topN);
+        public abstract void createReportFor(numberOfCountries topN);
+        public abstract void createReportFor(Continent name, numberOfCountries topN);
+        public abstract void createReportFor(Region name, numberOfCountries topN);
     }
 
     /**
@@ -68,6 +69,8 @@ public class App {
             t.createReportFor(c);
             Region r = new Region("northamerica");
             t.createReportFor(r);
+            numberOfCountries n = new numberOfCountries(1);
+            t.createReportFor(n);
         }
     }
 }
