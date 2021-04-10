@@ -1,5 +1,7 @@
 package com.napier.sem;
 
+import java.sql.SQLException;
+
 /**
  * The type App.
  */
@@ -15,11 +17,13 @@ public class App {
                 Report r = new CountryReport();
                 r.generateReport();
             }
+
             @Override
             public void createReportFor(Continent name) {
                 Report r = new CountryReport();
                 r.generateReport(name);
             }
+
             @Override
             public void createReportFor(Region name) {
                 Report r = new CountryReport();
@@ -48,11 +52,35 @@ public class App {
          * Create report.
          */
         public abstract void createReportFor();
+
         public abstract void createReportFor(Continent name);
+
         public abstract void createReportFor(Region name);
+
         public abstract void createReportFor(numberOfCountries topN);
+
         public abstract void createReportFor(Continent name, numberOfCountries topN);
+
         public abstract void createReportFor(Region name, numberOfCountries topN);
+    }
+
+    /**
+     * The enum Report type for Capital Cities
+     */
+    public enum reportTypesCapCity {
+        CapitalCity() {
+            @Override
+            public void createReportForcity() {
+                ReportCapitalCities r = new CapitalCitiesReport();
+                r.generateReport();
+            }
+        },
+        ;
+
+        /**
+         * Create report for capital cities.
+         */
+        public abstract void createReportForcity();
     }
 
     /**
@@ -61,7 +89,7 @@ public class App {
      * @param args the input arguments
      */
     public static void main(String[] args) {
-        for(reportTypes t : reportTypes.values()){
+        for (reportTypes t : reportTypes.values()) {
             // parameters defaulted here in order to keep the CI running
             // normally the user should be prompted to supply these
             t.createReportFor();
@@ -72,6 +100,15 @@ public class App {
             numberOfCountries n = new numberOfCountries(1);
             t.createReportFor(n);
         }
+
+        for (reportTypesCapCity t : reportTypesCapCity.values()) {
+            // parameters defaulted here in order to keep the CI running
+            // normally the user should be prompted to supply these
+                t.createReportForcity();
+        }
+
     }
+
 }
+
 
