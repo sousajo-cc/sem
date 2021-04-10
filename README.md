@@ -5,7 +5,7 @@
 - [![LICENSE](https://img.shields.io/github/license/sousajf1/sem.svg?style=flat-square)](https://github.com/sousajf1/sem/blob/master/LICENSE)
 - [![Releases](https://img.shields.io/github/release/sousajf1/sem/all.svg?style=flat-square)](https://github.com/sousajf1/sem/releases)
 
-### Requirements
+### Project Requirements Met
 
 ---
 
