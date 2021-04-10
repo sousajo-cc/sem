@@ -9,6 +9,8 @@
 
 ---
 
+> [Include No. Here] requirements of 32 have been implemented, which is [Include % Here].
+
 | ID | Name        | Met         | Screenshot      |
 |:---:|:------------|:-------------:|:--------------|
 | 1  | All the countries in the world organised by largest population to smallest. | Yes |
