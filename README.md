@@ -7,6 +7,8 @@
 
 ### Requirements
 
+---
+
 > [Include No. Here] requirements of 32 have been implemented, which is [Include % Here].
 
 | ID | Name        | Met         | Screenshot      |
