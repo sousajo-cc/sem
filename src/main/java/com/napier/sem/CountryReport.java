@@ -61,11 +61,4 @@ public class CountryReport implements Report {
     public void generateReport(numberOfCountries topN) {
         largestToSmallestPartial(topN);
     }
-
-    @Override
-    public void capitalCitiesLargestToSmallestWorld(){
-    }
-    @Override
-    public void generateReportCapCitiesLargestToSmallest(){
-    }
 }

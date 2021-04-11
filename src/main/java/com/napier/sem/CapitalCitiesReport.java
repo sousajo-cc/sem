@@ -5,6 +5,11 @@ import java.util.List;
 public class CapitalCitiesReport implements Report {
     @Override
     public void largestToSmallest(){
+        CapitalCitiesDAO CapitalCitiesDao = new CapitalCitiesDAOImpl();
+        List<CapitalCities> capitalcities = CapitalCitiesDao.getAllCapitalCitiesLargestToSmallestWorld();
+        for (CapitalCities c:capitalcities){
+            System.out.println(c.toString()); 
+        }
     }
     @Override
     public void largestToSmallestInContinent(Continent name){
@@ -17,6 +22,7 @@ public class CapitalCitiesReport implements Report {
     }
     @Override
     public void generateReport(){
+        largestToSmallest();
     }
     @Override
     public void generateReport(Continent name){
@@ -26,19 +32,5 @@ public class CapitalCitiesReport implements Report {
     }
     @Override
     public void generateReport(numberOfCountries topN){
-    }
-    
-    @Override
-    public void capitalCitiesLargestToSmallestWorld(){
-        CapitalCitiesDAO CapitalCitiesDao = new CapitalCitiesDAOImpl();
-        List<CapitalCities> capitalcities = CapitalCitiesDao.getAllCapitalCitiesLargestToSmallestWorld();
-        for (CapitalCities c:capitalcities){
-            System.out.println(c.toString());
-        }
-    }
-    
-    @Override
-    public void generateReportCapCitiesLargestToSmallest(){
-        capitalCitiesLargestToSmallestWorld();
     }
 }

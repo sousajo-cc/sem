@@ -12,6 +12,4 @@ public interface Report {
     void generateReport(Continent name);
     void generateReport(Region name);
     void generateReport(numberOfCountries topN);
-    void capitalCitiesLargestToSmallestWorld();
-    void generateReportCapCitiesLargestToSmallest();
 }
