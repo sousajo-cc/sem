@@ -1,7 +1,5 @@
 package com.napier.sem;
 
-import java.sql.SQLException;
-
 /**
  * The type App.
  */
@@ -17,30 +15,25 @@ public class App {
                 Report r = new CountryReport();
                 r.generateReport();
             }
-
             @Override
             public void createReportFor(Continent name) {
                 Report r = new CountryReport();
                 r.generateReport(name);
             }
-
             @Override
             public void createReportFor(Region name) {
                 Report r = new CountryReport();
                 r.generateReport(name);
             }
-
             @Override
             public void createReportFor(numberOfCountries topN) {
                 Report r = new CountryReport();
                 r.generateReport(topN);
             }
-
             @Override
             public void createReportFor(Continent name, numberOfCountries topN) {
                 // will be implemented next sprint
             }
-
             @Override
             public void createReportFor(Region name, numberOfCountries topN) {
                 // will be implemented next sprint
@@ -52,15 +45,10 @@ public class App {
          * Create report.
          */
         public abstract void createReportFor();
-
         public abstract void createReportFor(Continent name);
-
         public abstract void createReportFor(Region name);
-
         public abstract void createReportFor(numberOfCountries topN);
-
         public abstract void createReportFor(Continent name, numberOfCountries topN);
-
         public abstract void createReportFor(Region name, numberOfCountries topN);
     }
 
@@ -82,14 +70,14 @@ public class App {
          */
         public abstract void createReportForcity();
     }
-
+    
     /**
      * The entry point of application.
      *
      * @param args the input arguments
      */
     public static void main(String[] args) {
-        for (reportTypes t : reportTypes.values()) {
+        for(reportTypes t : reportTypes.values()){
             // parameters defaulted here in order to keep the CI running
             // normally the user should be prompted to supply these
             t.createReportFor();
@@ -101,14 +89,11 @@ public class App {
             t.createReportFor(n);
         }
 
-        for (reportTypesCapCity t : reportTypesCapCity.values()) {
+        for(reportTypesCapCity t : reportTypesCapCity.values()){
             // parameters defaulted here in order to keep the CI running
             // normally the user should be prompted to supply these
-                t.createReportForcity();
+            t.createReportForcity();
         }
-
     }
-
 }
-
 
