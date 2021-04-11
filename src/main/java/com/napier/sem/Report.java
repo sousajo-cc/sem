@@ -8,10 +8,10 @@ public interface Report {
     void largestToSmallestInContinent(Continent name);
     void largestToSmallestInRegion(Region name);
     void largestToSmallestPartial(numberOfCountries topN);
-    void capitalCitiesLargestToSmallestWorld();
-    void generateReportCapCitiesLargestToSmallest();
     void generateReport();
     void generateReport(Continent name);
     void generateReport(Region name);
     void generateReport(numberOfCountries topN);
+    void capitalCitiesLargestToSmallestWorld();
+    void generateReportCapCitiesLargestToSmallest();
 }
