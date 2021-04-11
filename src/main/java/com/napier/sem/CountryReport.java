@@ -65,7 +65,6 @@ public class CountryReport implements Report {
     @Override
     public void capitalCitiesLargestToSmallestWorld(){
     }
-
     @Override
     public void generateReportCapCitiesLargestToSmallest(){
     }
