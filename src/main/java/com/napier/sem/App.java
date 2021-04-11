@@ -9,25 +9,25 @@ public class App {
      */
 
     public enum reportTypes {
-        COUNTRY() {
+        ALL_REPORTS() {
             @Override
             public void createReportFor() {
-                Report r = new CountryReport();
+                Report r = new ReportTypes();
                 r.generateReport();
             }
             @Override
             public void createReportFor(Continent name) {
-                Report r = new CountryReport();
+                Report r = new ReportTypes();
                 r.generateReport(name);
             }
             @Override
             public void createReportFor(Region name) {
-                Report r = new CountryReport();
+                Report r = new ReportTypes();
                 r.generateReport(name);
             }
             @Override
             public void createReportFor(numberOfCountries topN) {
-                Report r = new CountryReport();
+                Report r = new ReportTypes();
                 r.generateReport(topN);
             }
             @Override
@@ -37,6 +37,11 @@ public class App {
             @Override
             public void createReportFor(Region name, numberOfCountries topN) {
                 // will be implemented next sprint
+            }
+            @Override
+            public void createReportForCapitalCityLargestToSmallestWorld() {
+                Report r = new ReportTypes();
+                r.generateReportCapCitiesLargestToSmallest();
             }
         },
         ;
@@ -50,25 +55,7 @@ public class App {
         public abstract void createReportFor(numberOfCountries topN);
         public abstract void createReportFor(Continent name, numberOfCountries topN);
         public abstract void createReportFor(Region name, numberOfCountries topN);
-    }
-
-    /**
-     * The enum Report type for Capital Cities
-     */
-    public enum reportTypesCapCity {
-        CapitalCity() {
-            @Override
-            public void createReportForcity() {
-                ReportCapitalCities r = new CapitalCitiesReport();
-                r.generateReport();
-            }
-        },
-        ;
-
-        /**
-         * Create report for capital cities.
-         */
-        public abstract void createReportForcity();
+        public abstract void createReportForCapitalCityLargestToSmallestWorld();
     }
     
     /**
@@ -87,12 +74,7 @@ public class App {
             t.createReportFor(r);
             numberOfCountries n = new numberOfCountries(1);
             t.createReportFor(n);
-        }
-
-        for(reportTypesCapCity t : reportTypesCapCity.values()){
-            // parameters defaulted here in order to keep the CI running
-            // normally the user should be prompted to supply these
-            t.createReportForcity();
+            t.createReportForCapitalCityLargestToSmallestWorld();
         }
     }
 }

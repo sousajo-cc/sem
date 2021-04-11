@@ -13,7 +13,7 @@ import java.util.List;
 public class CapitalCitiesDAOImpl implements CapitalCitiesDAO {
 
     @Override
-    public List<CapitalCities> getAllCapitalCities() {
+    public List<CapitalCities> getAllCapitalCitiesLargestToSmallestWorld() {
         String strSelect = "SELECT world.city.Name, world.country.Name AS 'Country', world.city.Population " +
                            "FROM world.country " +
                            "JOIN world.city " +
@@ -46,6 +46,4 @@ public class CapitalCitiesDAOImpl implements CapitalCitiesDAO {
         }
         return capitalcities;
     }
-
-
 }

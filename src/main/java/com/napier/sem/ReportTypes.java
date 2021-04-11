@@ -3,9 +3,9 @@ package com.napier.sem;
 import java.util.List;
 
 /**
- * The type Country report.
+ * The type of reports.
  */
-public class CountryReport implements Report {
+public class ReportTypes implements Report {
     @Override
     public void largestToSmallest() {
         CountryDAO countryDao = new CountryDAOImpl();
@@ -43,9 +43,15 @@ public class CountryReport implements Report {
     }
 
     @Override
-    public void generateReport() {
-        largestToSmallest();
+    public void capitalCitiesLargestToSmallestWorld() {
+        CapitalCitiesDAO capitalcitiesDao = new CapitalCitiesDAOImpl();
+        List<CapitalCities> capitalcities = capitalcitiesDao.getAllCapitalCitiesLargestToSmallestWorld();
+        for (CapitalCities c:capitalcities){
+            System.out.println(c.toString());
+        }
     }
+
+    @Override public void generateReport() { largestToSmallest(); }
 
     @Override
     public void generateReport(Continent continent) {
@@ -62,4 +68,6 @@ public class CountryReport implements Report {
         largestToSmallestPartial(topN);
     }
 
+    @Override 
+    public void generateReportCapCitiesLargestToSmallest() { capitalCitiesLargestToSmallestWorld(); }
 }

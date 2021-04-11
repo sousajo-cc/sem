@@ -11,7 +11,5 @@ public interface CapitalCitiesDAO {
      *
      * @return all capital cities organized by largest population to smallest.
      */
-    List<CapitalCities> getAllCapitalCities();
-
-
+    List<CapitalCities> getAllCapitalCitiesLargestToSmallestWorld();
 }

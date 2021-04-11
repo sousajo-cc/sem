@@ -48,5 +48,4 @@ public class CapitalCities {
                 ", Population=" + population +
                 " }";
     }
-
 }
