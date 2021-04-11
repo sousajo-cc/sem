@@ -51,23 +51,30 @@ public class ReportTypes implements Report {
         }
     }
 
-    @Override public void generateReport() { largestToSmallest(); }
+    @Override public void generateReport() { 
+        largestToSmallest(); 
+    }
 
     @Override
     public void generateReport(Continent continent) {
+        
         largestToSmallestInContinent(continent);
     }
 
     @Override
     public void generateReport(Region region) {
+        
         largestToSmallestInRegion(region);
     }
 
     @Override
     public void generateReport(numberOfCountries topN) {
+        
         largestToSmallestPartial(topN);
     }
 
     @Override 
-    public void generateReportCapCitiesLargestToSmallest() { capitalCitiesLargestToSmallestWorld(); }
+    public void generateReportCapCitiesLargestToSmallest() { 
+        capitalCitiesLargestToSmallestWorld(); 
+    }
 }
