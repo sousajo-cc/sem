@@ -58,9 +58,9 @@ public class App {
     public enum reportTypesCapCity {
         CAPITALCITY() {
             @Override
-            public void createReportForcity() {
+            public void createReportForCapCity() {
                 Report r = new CapitalCitiesReport();
-                r.generateReport();
+                r.generateReportCapCitiesLargestToSmallest();
             }
         },
         ;
@@ -68,7 +68,7 @@ public class App {
         /**
          * Create report for capital cities.
          */
-        public abstract void createReportForcity();
+        public abstract void createReportForCapCity();
     }
 
     /**
@@ -77,7 +77,7 @@ public class App {
      * @param args the input arguments
      */
     public static void main(String[] args) {
-        for (reportTypes t : reportTypes.values()) {
+        for(reportTypes t : reportTypes.values()){
             // parameters defaulted here in order to keep the CI running
             // normally the user should be prompted to supply these
             t.createReportFor();
@@ -89,10 +89,10 @@ public class App {
             t.createReportFor(n);
         }
 
-        for (reportTypesCapCity t : reportTypesCapCity.values()) {
+        for(reportTypesCapCity t : reportTypesCapCity.values()){
             // parameters defaulted here in order to keep the CI running
             // normally the user should be prompted to supply these
-            t.createReportForcity();
+            t.createReportForCapCity();
         }
     }
 }
