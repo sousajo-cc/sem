@@ -47,6 +47,8 @@ public class App {
             }
             @Override
             public void createReportFor(Continent name){
+                Report r = new CapitalCitiesReport();
+                r.generateReport(name);
             }
             @Override
             public void createReportFor(Region name){

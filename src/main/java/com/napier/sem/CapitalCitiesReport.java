@@ -12,7 +12,12 @@ public class CapitalCitiesReport implements Report {
         }
     }
     @Override
-    public void largestToSmallestInContinent(Continent name){
+    public void largestToSmallestInContinent(Continent continent){
+        CapitalCitiesDAO CapitalCitiesDao = new CapitalCitiesDAOImpl();
+        List<CapitalCities> capitalcities = CapitalCitiesDao.getAllCapitalCitiesLargestToSmallestContinent(continent);
+        for (CapitalCities c:capitalcities){
+            System.out.println(c.toString());
+        }
     }
     @Override
     public void largestToSmallestInRegion(Region name){
@@ -26,6 +31,7 @@ public class CapitalCitiesReport implements Report {
     }
     @Override
     public void generateReport(Continent name){
+        largestToSmallestInContinent(name);
     }
     @Override
     public void generateReport(Region name){
