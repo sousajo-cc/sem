@@ -40,3 +40,4 @@ public class CapitalCitiesReport implements Report {
     public void generateReport(numberOfCountries topN){
     }
 }
+

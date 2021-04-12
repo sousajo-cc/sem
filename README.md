@@ -45,4 +45,3 @@
 | 30  | The population of a district. |   |
 | 31  | The population of a city. |   |
 | 32  | Provide the Number of People who speak Chinese, English, Hindi, Spanish and Arabic, from the Greatest Number to Smallest, including the Percentage of the World Population. |   |
-
