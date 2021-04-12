@@ -61,5 +61,4 @@ public class CountryReport implements Report {
     public void generateReport(numberOfCountries topN) {
         largestToSmallestPartial(topN);
     }
-
 }

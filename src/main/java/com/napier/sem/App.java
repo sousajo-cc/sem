@@ -9,37 +9,56 @@ public class App {
      */
 
     public enum reportTypes {
-        COUNTRY() {
+        COUNTRY(){
             @Override
-            public void createReportFor() {
-                Report r = new CountryReport();
+            public void createReportFor(){
+                Report r=new CountryReport();
                 r.generateReport();
             }
             @Override
-            public void createReportFor(Continent name) {
-                Report r = new CountryReport();
+            public void createReportFor(Continent name){
+                Report r=new CountryReport();
                 r.generateReport(name);
             }
             @Override
-            public void createReportFor(Region name) {
-                Report r = new CountryReport();
+            public void createReportFor(Region name){
+                Report r=new CountryReport();
                 r.generateReport(name);
             }
-
             @Override
-            public void createReportFor(numberOfCountries topN) {
-                Report r = new CountryReport();
+            public void createReportFor(numberOfCountries topN){
+                Report r=new CountryReport();
                 r.generateReport(topN);
             }
-
             @Override
-            public void createReportFor(Continent name, numberOfCountries topN) {
+            public void createReportFor(Continent name,numberOfCountries topN){
                 // will be implemented next sprint
             }
-
             @Override
-            public void createReportFor(Region name, numberOfCountries topN) {
+            public void createReportFor(Region name,numberOfCountries topN){
                 // will be implemented next sprint
+            }
+        },
+        CAPITALCITY() {
+            @Override
+            public void createReportFor() {
+                Report r = new CapitalCitiesReport();
+                r.generateReport();
+            }
+            @Override
+            public void createReportFor(Continent name){
+            }
+            @Override
+            public void createReportFor(Region name){
+            }
+            @Override
+            public void createReportFor(numberOfCountries topN){
+            }
+            @Override
+            public void createReportFor(Continent name,numberOfCountries topN){
+            }
+            @Override
+            public void createReportFor(Region name,numberOfCountries topN){
             }
         },
         ;
@@ -74,4 +93,3 @@ public class App {
         }
     }
 }
-
