@@ -23,6 +23,18 @@ public class CapitalCitiesDAOImpl implements CapitalCitiesDAO {
         return getCapitalCities(strSelect);
     }
 
+    @Override
+    public List<CapitalCities> getAllCapitalCitiesLargestToSmallestContinent(Continent continent) {
+        String strSelect = "SELECT world.city.Name, world.country.Name AS 'Country', world.city.Population " +
+                "FROM world.country " +
+                "JOIN world.city " +
+                "ON world.country.Capital = world.city.ID " +
+                "WHERE LOWER(world.country.Continent) = '" + continent.name.toLowerCase() +
+                "' ORDER BY world.city.Population " +
+                "DESC";
+        return getCapitalCities(strSelect);
+    }
+
     public List<CapitalCities> getCapitalCities(String queryString){
         List<CapitalCities> capitalcities = new ArrayList<>();
         ConnectionManager dbCon = new ConnectionManager();
