@@ -14,4 +14,3 @@ public interface CapitalCitiesDAO {
     List<CapitalCities> getAllCapitalCitiesLargestToSmallestWorld();
     List<CapitalCities> getAllCapitalCitiesLargestToSmallestContinent(Continent continent);
 }
-

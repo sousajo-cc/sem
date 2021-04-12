@@ -59,4 +59,3 @@ public class CapitalCitiesDAOImpl implements CapitalCitiesDAO {
         return capitalcities;
     }
 }
-
