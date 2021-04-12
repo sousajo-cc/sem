@@ -2,6 +2,9 @@ package com.napier.sem;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class IntegrationTest {
 
     @BeforeAll
@@ -10,11 +13,10 @@ public class IntegrationTest {
     }
 
     @Test
-    void testGetTopNCountries()
+    void IntegrationTestRun()
     {
-        for(App.reportTypes t : App.reportTypes.values()){
-            numberOfCountries n = new numberOfCountries(1);
-            t.createReportFor(n);
-        }
+        CountryDAO countryDao = new CountryDAOImpl();
+        List<Country> countries = countryDao.getAllCountriesPopFromLargestToSmallest();
+        assertEquals(countries.get(0).getContinent().toLowerCase(), "asia");
     }
 }

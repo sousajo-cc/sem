@@ -11,11 +11,31 @@ services:
 
 install:
   - docker build -t database db/.
-  - docker run --rm -d -e MYSQL_ROOT_PASSWORD=example -p 33060:3306 database
+  - docker run --rm -d -e MYSQL_ROOT_PASSWORD=example -p 3306:3306 database
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 before_script:
   - mvn clean
 
-script:
-  - mvn test -Dtest=com.napier.sem.countryDAOImplTest
+jobs:
+  include:
+    - stage: unit tests
+      install: skip
+      jdk: oraclejdk11
+      script: mvn test -Dtest=com.napier.sem.countryDAOImplTest
+    - stage: integration tests
+      jdk: oraclejdk11
+      script: mvn test -Dtest=com.napier.sem.IntegrationTest
+    - stage: deploy
+      jdk: oraclejdk11
+      script:
+        - mvn package -DskipTests=true -Dmaven.javadoc.skip=true
+        - docker-compose up --abort-on-container-exit
+
+stages:
+  - unit tests
+  - integration tests
+  - deploy
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
