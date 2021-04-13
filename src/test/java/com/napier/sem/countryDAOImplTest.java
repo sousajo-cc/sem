@@ -89,4 +89,24 @@ class countryDAOImplTest {
         List<Country> ret = country.getAllCountriesPopFromLargestToSmallestInContinent(c);
         assertEquals(ret.get(0).getName().toLowerCase(), "ireland");
     }
+
+    @Test
+    public void getAllCountriesPopFromLargestToSmallestInRegionTest(){
+        Region r = new Region("northamerica");
+
+        Mockito.when(country.getAllCountriesPopFromLargestToSmallestInRegion(r))
+                .thenReturn(countryContListRet);
+        List<Country> ret = country.getAllCountriesPopFromLargestToSmallestInRegion(r);
+        assertEquals(ret.get(0).getName().toLowerCase(), "ireland");
+    }
+
+    @Test
+    public void getTopNCountriesPopFromLargestToSmallestTest(){
+        numberOfCountries topN = new numberOfCountries(1);
+
+        Mockito.when(country.getTopNCountriesPopFromLargestToSmallest(topN))
+                .thenReturn(countryContListRet);
+        List<Country> ret = country.getTopNCountriesPopFromLargestToSmallest(topN);
+        assertEquals(ret.get(0).getName().toLowerCase(), "ireland");
+    }
 }
