@@ -4,7 +4,7 @@
 - develop Build Status [![Build Status](https://travis-ci.org/sousajf1/sem.svg?branch=develop)](https://travis-ci.org/sousajf1/sem)
 - [![LICENSE](https://img.shields.io/github/license/sousajf1/sem.svg?style=flat-square)](https://github.com/sousajf1/sem/blob/master/LICENSE)
 - [![Releases](https://img.shields.io/github/release/sousajf1/sem/all.svg?style=flat-square)](https://github.com/sousajf1/sem/releases)
-
+- [![codecov](https://codecov.io/gh/sousajf1/sem/branch/main/graph/badge.svg?token=JDZ7W32J4I)](https://codecov.io/gh/sousajf1/sem)
 ### Project Requirements Met
 
 ---
