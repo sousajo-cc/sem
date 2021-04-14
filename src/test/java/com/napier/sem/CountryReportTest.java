@@ -48,7 +48,7 @@ public class CountryReportTest {
         CountryReport countryReport = new CountryReport(country);
         ByteArrayOutputStream buf = new ByteArrayOutputStream();
         System.setOut(new PrintStream(buf));
-        countryReport.largestToSmallest();
+        countryReport.generateReport();
         buf.flush();
         String allWrittenLines = buf.toString();
         System.out.println(allWrittenLines);
@@ -63,7 +63,7 @@ public class CountryReportTest {
         CountryReport countryReport = new CountryReport(country);
         ByteArrayOutputStream buf = new ByteArrayOutputStream();
         System.setOut(new PrintStream(buf));
-        countryReport.largestToSmallestInContinent(c);
+        countryReport.generateReport(c);
         buf.flush();
         String allWrittenLines = buf.toString();
         assertTrue(allWrittenLines.contains("Micronesia/Caribbean"));
@@ -78,7 +78,7 @@ public class CountryReportTest {
         CountryReport countryReport = new CountryReport(country);
         ByteArrayOutputStream buf = new ByteArrayOutputStream();
         System.setOut(new PrintStream(buf));
-        countryReport.largestToSmallestInRegion(r);
+        countryReport.generateReport(r);
         buf.flush();
         String allWrittenLines = buf.toString();
         assertTrue(allWrittenLines.contains("Micronesia/Caribbean"));
