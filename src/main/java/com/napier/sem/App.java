@@ -12,22 +12,26 @@ public class App {
         COUNTRY(){
             @Override
             public void createReportFor(){
-                Report r=new CountryReport();
+                CountryDAO countryDAO = new CountryDAOImpl();
+                Report r = new CountryReport(countryDAO);
                 r.generateReport();
             }
             @Override
             public void createReportFor(Continent name){
-                Report r=new CountryReport();
+                CountryDAO countryDAO = new CountryDAOImpl();
+                Report r = new CountryReport(countryDAO);
                 r.generateReport(name);
             }
             @Override
             public void createReportFor(Region name){
-                Report r=new CountryReport();
+                CountryDAO countryDAO = new CountryDAOImpl();
+                Report r = new CountryReport(countryDAO);
                 r.generateReport(name);
             }
             @Override
             public void createReportFor(numberOfCountries topN){
-                Report r=new CountryReport();
+                CountryDAO countryDAO = new CountryDAOImpl();
+                Report r = new CountryReport(countryDAO);
                 r.generateReport(topN);
             }
             @Override

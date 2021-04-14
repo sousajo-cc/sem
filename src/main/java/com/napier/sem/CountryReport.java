@@ -6,34 +6,36 @@ import java.util.List;
  * The type Country report.
  */
 public class CountryReport implements Report {
+    private CountryDAO countryDao;
+
+    CountryReport(CountryDAO countryDao){
+        this.countryDao = countryDao;
+    }
+
     @Override
     public void largestToSmallest() {
-        CountryDAO countryDao = new CountryDAOImpl();
-        List<Country> countries = countryDao.getAllCountriesPopFromLargestToSmallest();
+        List<Country> countries = this.countryDao.getAllCountriesPopFromLargestToSmallest();
         for (Country c:countries){
             System.out.println(c.toString());
         }
     }
     @Override
     public void largestToSmallestInContinent(Continent continent) {
-        CountryDAO countryDao = new CountryDAOImpl();
-        List<Country> countries = countryDao.getAllCountriesPopFromLargestToSmallestInContinent(continent);
+        List<Country> countries = this.countryDao.getAllCountriesPopFromLargestToSmallestInContinent(continent);
         for (Country c:countries){
             System.out.println(c.toString());
         }
     }
     @Override
     public void largestToSmallestInRegion(Region region) {
-        CountryDAO countryDao = new CountryDAOImpl();
-        List<Country> countries = countryDao.getAllCountriesPopFromLargestToSmallestInRegion(region);
+        List<Country> countries = this.countryDao.getAllCountriesPopFromLargestToSmallestInRegion(region);
         for (Country c:countries){
             System.out.println(c.toString());
         }
     }
     @Override
     public void largestToSmallestPartial(numberOfCountries topN) {
-        CountryDAO countryDao = new CountryDAOImpl();
-        List<Country> countries = countryDao.getTopNCountriesPopFromLargestToSmallest(topN);
+        List<Country> countries = this.countryDao.getTopNCountriesPopFromLargestToSmallest(topN);
         for (Country c:countries){
             System.out.println(c.toString());
         }
