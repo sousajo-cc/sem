@@ -33,8 +33,8 @@
 | 18  | All the capital cities in a continent organised by largest population to smallest. | Yes |  ![18-capitalCitiesContinent](https://github.com/Lindon-Jackasal/sem-1/blob/develop/images/18-capitalCitiesContinent.PNG)   |
 | 19  | All the capital cities in a region organised by largest to smallest. | Yes |  ![19-capitalCitiesRegion](https://github.com/Lindon-Jackasal/sem-1/blob/develop/images/19-capitalCitiesRegion.PNG)   |
 | 20  | The top N populated capital cities in the world where N is provided by the user. | Yes |  ![20-capitalCitiesTopNWorld](https://github.com/Lindon-Jackasal/sem-1/blob/develop/images/20-capitalCitiesTopNWorld.PNG)   |
-| 21  | The top N populated capital cities in a continent where N is provided by the user. | Yes |  ![21-capitalCitiesTopNContinent](https://github.com/Lindon-Jackasal/sem-1/blob/develop/images/20-capitalCitiesTopNContinent.PNG)   |
-| 22  | The top N populated capital cities in a region where N is provided by the user. | Yes |  ![22-capitalCitiesTopNRegion](https://github.com/Lindon-Jackasal/sem-1/blob/develop/images/20-capitalCitiesTopNRegion.PNG)   |
+| 21  | The top N populated capital cities in a continent where N is provided by the user. | Yes |  ![21-capitalCitiesTopNContinent](https://github.com/Lindon-Jackasal/sem-1/blob/develop/images/21-capitalCitiesTopNContinent.PNG)   |
+| 22  | The top N populated capital cities in a region where N is provided by the user. | Yes |  ![22-capitalCitiesTopNRegion](https://github.com/Lindon-Jackasal/sem-1/blob/develop/images/22-capitalCitiesTopNRegion.PNG)   |
 | 23  | The population of people, people living in cities, and people not living in cities in each continent. |    |
 | 24  | The population of people, people living in cities, and people not living in cities in each region. |   |
 | 25  | The population of people, people living in cities, and people not living in cities in each country. |    |
