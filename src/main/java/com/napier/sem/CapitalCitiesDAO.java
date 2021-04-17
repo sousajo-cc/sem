@@ -13,4 +13,8 @@ public interface CapitalCitiesDAO {
      */
     List<CapitalCities> getAllCapitalCitiesLargestToSmallestWorld();
     List<CapitalCities> getAllCapitalCitiesLargestToSmallestContinent(Continent continent);
+    List<CapitalCities> getAllCapitalCitiesLargestToSmallestRegion(Region region);
+    List<CapitalCities> getTopNCapitalCitiesLargestToSmallest(numberOfCountries topN);
+    List<CapitalCities> getTopNCapitalCitiesLargestToSmallestContinent(Continent continent, numberOfCountries topN);
+    List<CapitalCities> getTopNCapitalCitiesLargestToSmallestRegion(Region region, numberOfCountries topN);
 }

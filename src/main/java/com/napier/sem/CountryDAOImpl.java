@@ -38,6 +38,28 @@ public class CountryDAOImpl implements CountryDAO {
         return getCountries(strSelect);
     }
 
+    @Override
+    public List<Country> getTopNCountriesPopFromLargestToSmallestContinent(Continent continent, numberOfCountries topN) {
+        String strSelect = "SELECT * " +
+                           "FROM country " +
+                           "WHERE LOWER(world.country.Continent) = '" + continent.name.toLowerCase() +
+                           "' ORDER BY Population " +
+                           "DESC " +
+                           "LIMIT " + topN.topN ;
+        return getCountries(strSelect);
+    }
+
+    @Override
+    public List<Country> getTopNCountriesPopFromLargestToSmallestContinent(Region region, numberOfCountries topN) {
+        String strSelect = "SELECT * " +
+                           "FROM country " +
+                           "WHERE LOWER(REPLACE(Region,' ', '')) = '" + region.name.toLowerCase() +
+                           "' ORDER BY Population " +
+                           "DESC " +
+                           "LIMIT " + topN.topN ;
+        return getCountries(strSelect);
+    }
+    
     public List<Country> getCountries(String queryString){
         List<Country> countries = new ArrayList<>();
         ConnectionManager dbCon = new ConnectionManager();

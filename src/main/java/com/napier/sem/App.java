@@ -31,12 +31,14 @@ public class App {
                 r.generateReport(topN);
             }
             @Override
-            public void createReportFor(Continent name,numberOfCountries topN){
-                // will be implemented next sprint
+            public void createReportFor(Continent name, numberOfCountries topN){
+                Report r = new CountryReport();
+                r.generateReport(name, topN);
             }
             @Override
-            public void createReportFor(Region name,numberOfCountries topN){
-                // will be implemented next sprint
+            public void createReportFor(Region name, numberOfCountries topN){
+                Report r = new CountryReport();
+                r.generateReport(name, topN);
             }
         },
         CAPITALCITY() {
@@ -52,15 +54,23 @@ public class App {
             }
             @Override
             public void createReportFor(Region name){
+                Report r = new CapitalCitiesReport();
+                r.generateReport(name);
             }
             @Override
             public void createReportFor(numberOfCountries topN){
+                Report r = new CapitalCitiesReport();
+                r.generateReport(topN);
             }
             @Override
-            public void createReportFor(Continent name,numberOfCountries topN){
+            public void createReportFor(Continent name, numberOfCountries topN){
+                Report r = new CapitalCitiesReport();
+                r.generateReport(name, topN);
             }
             @Override
-            public void createReportFor(Region name,numberOfCountries topN){
+            public void createReportFor(Region name, numberOfCountries topN){
+                Report r = new CapitalCitiesReport();
+                r.generateReport(name, topN);
             }
         },
         ;
@@ -92,6 +102,8 @@ public class App {
             t.createReportFor(r);
             numberOfCountries n = new numberOfCountries(1);
             t.createReportFor(n);
+            t.createReportFor(c, n);
+            t.createReportFor(r, n);
         }
     }
 }
