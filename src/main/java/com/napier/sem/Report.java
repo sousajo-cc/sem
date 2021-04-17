@@ -12,4 +12,8 @@ public interface Report {
     void generateReport(Continent name);
     void generateReport(Region name);
     void generateReport(numberOfCountries topN);
+    void largestToSmallestPartialContinent(Continent name, numberOfCountries topN);
+    void generateReport(Continent name, numberOfCountries topN);
+    void largestToSmallestPartialRegion(Region name, numberOfCountries topN);
+    void generateReport(Region name, numberOfCountries topN);
 }

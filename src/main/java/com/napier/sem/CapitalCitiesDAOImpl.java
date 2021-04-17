@@ -26,12 +26,62 @@ public class CapitalCitiesDAOImpl implements CapitalCitiesDAO {
     @Override
     public List<CapitalCities> getAllCapitalCitiesLargestToSmallestContinent(Continent continent) {
         String strSelect = "SELECT world.city.Name, world.country.Name AS 'Country', world.city.Population " +
-                "FROM world.country " +
-                "JOIN world.city " +
-                "ON world.country.Capital = world.city.ID " +
-                "WHERE LOWER(world.country.Continent) = '" + continent.name.toLowerCase() +
-                "' ORDER BY world.city.Population " +
-                "DESC";
+                           "FROM world.country " +
+                           "JOIN world.city " +
+                           "ON world.country.Capital = world.city.ID " +
+                           "WHERE LOWER(world.country.Continent) = '" + continent.name.toLowerCase() +
+                           "' ORDER BY world.city.Population " +
+                           "DESC";
+        return getCapitalCities(strSelect);
+    }
+
+    @Override
+    public List<CapitalCities> getAllCapitalCitiesLargestToSmallestRegion(Region region) {
+        String strSelect = "SELECT world.city.Name, world.country.Name AS 'Country', world.city.Population " +
+                           "FROM world.country " +
+                           "JOIN world.city " +
+                           "ON world.country.Capital = world.city.ID " +
+                           "WHERE LOWER(REPLACE(Region,' ', '')) = '" + region.name.toLowerCase() +
+                           "' ORDER BY world.city.Population " +
+                           "DESC";
+        return getCapitalCities(strSelect);
+    }
+
+    @Override
+    public List<CapitalCities> getTopNCapitalCitiesLargestToSmallest(numberOfCountries topN) {
+        String strSelect = "SELECT world.city.Name, world.country.Name AS 'Country', world.city.Population " +
+                           "FROM world.country " +
+                           "JOIN world.city " +
+                           "ON world.country.Capital = world.city.ID " +
+                           "ORDER BY world.city.Population " +
+                           "DESC " +
+                           "LIMIT " + topN.topN ;
+        return getCapitalCities(strSelect);
+    }
+
+    @Override
+    public List<CapitalCities> getTopNCapitalCitiesLargestToSmallestContinent(Continent continent, numberOfCountries topN) {
+        String strSelect = "SELECT world.city.Name, world.country.Name AS 'Country', world.city.Population " +
+                           "FROM world.country " +
+                           "JOIN world.city " +
+                           "ON world.country.Capital = world.city.ID " +
+                           "WHERE LOWER(world.country.Continent) = '" + continent.name.toLowerCase() +
+                           "' ORDER BY world.city.Population " +
+                           "DESC " +
+                           "LIMIT " + topN.topN ;
+        return getCapitalCities(strSelect);
+    }
+
+    @Override
+    public List<CapitalCities> getTopNCapitalCitiesLargestToSmallestRegion(Region region, numberOfCountries topN) {
+        String strSelect = "SELECT world.city.Name, world.country.Name AS 'Country', world.city.Population " +
+                           "FROM world.country " +
+                           "JOIN world.city " +
+                           "ON world.country.Capital = world.city.ID " +
+                           "WHERE LOWER(REPLACE(Region,' ', '')) = '"+ region.name.toLowerCase() +
+                           "' ORDER BY world.city.Population " +
+                           "DESC " +
+                           "LIMIT " + topN.topN ;
         return getCapitalCities(strSelect);
     }
 

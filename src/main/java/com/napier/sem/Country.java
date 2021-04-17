@@ -214,17 +214,8 @@ public class Country {
                 ", name='" + name + '\'' +
                 ", continent='" + continent + '\'' +
                 ", region='" + region + '\'' +
-                ", surfaceArea=" + surfaceArea +
-                ", independenceYear=" + independenceYear +
                 ", population=" + population +
-                ", lifeExpectancy=" + lifeExpectancy +
-                ", gnp=" + gnp +
-                ", gnpOld=" + gnpOld +
-                ", localName='" + localName + '\'' +
-                ", governmentForm='" + governmentForm + '\'' +
-                ", headOfState='" + headOfState + '\'' +
                 ", capital=" + capital +
-                ", codeTwo='" + codeTwo + '\'' +
                 '}';
     }
 }

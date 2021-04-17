@@ -14,7 +14,6 @@ public class CountryReport implements Report {
             System.out.println(c.toString());
         }
     }
-
     @Override
     public void largestToSmallestInContinent(Continent continent) {
         CountryDAO countryDao = new CountryDAOImpl();
@@ -23,7 +22,6 @@ public class CountryReport implements Report {
             System.out.println(c.toString());
         }
     }
-
     @Override
     public void largestToSmallestInRegion(Region region) {
         CountryDAO countryDao = new CountryDAOImpl();
@@ -32,7 +30,6 @@ public class CountryReport implements Report {
             System.out.println(c.toString());
         }
     }
-
     @Override
     public void largestToSmallestPartial(numberOfCountries topN) {
         CountryDAO countryDao = new CountryDAOImpl();
@@ -41,24 +38,44 @@ public class CountryReport implements Report {
             System.out.println(c.toString());
         }
     }
-
+    @Override
+    public void largestToSmallestPartialContinent(Continent name, numberOfCountries topN){
+        CountryDAO countryDao = new CountryDAOImpl();
+        List<Country> countries = countryDao.getTopNCountriesPopFromLargestToSmallestContinent(name, topN);
+        for (Country c:countries){
+            System.out.println(c.toString());
+        }
+    }
+    @Override
+    public void largestToSmallestPartialRegion(Region name, numberOfCountries topN){
+        CountryDAO countryDao = new CountryDAOImpl();
+        List<Country> countries = countryDao.getTopNCountriesPopFromLargestToSmallestContinent(name, topN);
+        for (Country c:countries){
+            System.out.println(c.toString());
+        }
+    }
     @Override
     public void generateReport() {
         largestToSmallest();
     }
-
     @Override
     public void generateReport(Continent continent) {
         largestToSmallestInContinent(continent);
     }
-
     @Override
     public void generateReport(Region region) {
         largestToSmallestInRegion(region);
     }
-
     @Override
     public void generateReport(numberOfCountries topN) {
         largestToSmallestPartial(topN);
+    }
+    @Override
+    public void generateReport(Continent name, numberOfCountries topN){
+        largestToSmallestPartialContinent(name, topN);
+    }
+    @Override
+    public void generateReport(Region name, numberOfCountries topN){
+        largestToSmallestPartialRegion(name, topN);
     }
 }
