@@ -84,5 +84,20 @@ public class CountryReportTest {
         assertTrue(allWrittenLines.contains("Micronesia/Caribbean"));
     }
 
+    @Test
+    public void largestToSmallestInRegionTestPartial() throws Exception {
+        numberOfCountries topN = new numberOfCountries(1);
+
+        Mockito.when(country.getTopNCountriesPopFromLargestToSmallest(topN))
+                .thenReturn(countryListRet);
+        CountryReport countryReport = new CountryReport(country);
+        ByteArrayOutputStream buf = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(buf));
+        countryReport.generateReport(topN);
+        buf.flush();
+        String allWrittenLines = buf.toString();
+        assertTrue(allWrittenLines.contains("Micronesia/Caribbean"));
+    }
+
 }
 
