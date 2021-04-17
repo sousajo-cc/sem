@@ -85,7 +85,7 @@ public class CountryReportTest {
     }
 
     @Test
-    public void largestToSmallestInRegionTestPartial() throws Exception {
+    public void largestToSmallestInRegionPartialTest() throws Exception {
         numberOfCountries topN = new numberOfCountries(1);
 
         Mockito.when(country.getTopNCountriesPopFromLargestToSmallest(topN))
@@ -99,5 +99,36 @@ public class CountryReportTest {
         assertTrue(allWrittenLines.contains("Micronesia/Caribbean"));
     }
 
+    @Test
+    public void largestToSmallestPartialContinentTest() throws Exception {
+        Continent c = new Continent("europe");
+        numberOfCountries topN = new numberOfCountries(1);
+
+        Mockito.when(country.getTopNCountriesPopFromLargestToSmallestContinent(c, topN))
+                .thenReturn(countryListRet);
+        CountryReport countryReport = new CountryReport(country);
+        ByteArrayOutputStream buf = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(buf));
+        countryReport.generateReport(c, topN);
+        buf.flush();
+        String allWrittenLines = buf.toString();
+        assertTrue(allWrittenLines.contains("Micronesia/Caribbean"));
+    }
+
+    @Test
+    public void largestToSmallestPartialRegionTest() throws Exception {
+        Region r = new Region("northamerica");
+        numberOfCountries topN = new numberOfCountries(1);
+
+        Mockito.when(country.getTopNCountriesPopFromLargestToSmallestContinent(r, topN))
+                .thenReturn(countryListRet);
+        CountryReport countryReport = new CountryReport(country);
+        ByteArrayOutputStream buf = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(buf));
+        countryReport.generateReport(r, topN);
+        buf.flush();
+        String allWrittenLines = buf.toString();
+        assertTrue(allWrittenLines.contains("Micronesia/Caribbean"));
+    }
 }
 

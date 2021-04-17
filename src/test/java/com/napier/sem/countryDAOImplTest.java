@@ -77,7 +77,7 @@ class countryDAOImplTest {
         Mockito.when(country.getAllCountriesPopFromLargestToSmallest())
                 .thenReturn(countryListRet);
         List<Country> ret = country.getAllCountriesPopFromLargestToSmallest();
-        assertEquals(ret.get(0).getContinent().toLowerCase(), "oceania");
+        assertEquals(ret, countryListRet);
     }
 
     @Test
@@ -85,9 +85,9 @@ class countryDAOImplTest {
         Continent c = new Continent("europe");
 
         Mockito.when(country.getAllCountriesPopFromLargestToSmallestInContinent(c))
-                .thenReturn(countryContListRet);
+                .thenReturn(countryListRet);
         List<Country> ret = country.getAllCountriesPopFromLargestToSmallestInContinent(c);
-        assertEquals(ret.get(0).getName().toLowerCase(), "ireland");
+        assertEquals(ret, countryListRet);
     }
 
     @Test
@@ -95,9 +95,9 @@ class countryDAOImplTest {
         Region r = new Region("northamerica");
 
         Mockito.when(country.getAllCountriesPopFromLargestToSmallestInRegion(r))
-                .thenReturn(countryContListRet);
+                .thenReturn(countryListRet);
         List<Country> ret = country.getAllCountriesPopFromLargestToSmallestInRegion(r);
-        assertEquals(ret.get(0).getName().toLowerCase(), "ireland");
+        assertEquals(ret, countryListRet);
     }
 
     @Test
@@ -105,8 +105,30 @@ class countryDAOImplTest {
         numberOfCountries topN = new numberOfCountries(1);
 
         Mockito.when(country.getTopNCountriesPopFromLargestToSmallest(topN))
-                .thenReturn(countryContListRet);
+                .thenReturn(countryListRet);
         List<Country> ret = country.getTopNCountriesPopFromLargestToSmallest(topN);
-        assertEquals(ret.get(0).getName().toLowerCase(), "ireland");
+        assertEquals(ret, countryListRet);
+    }
+
+    @Test
+    public void getLargestToSmallestPartialContinentTest(){
+        Continent c = new Continent("europe");
+        numberOfCountries topN = new numberOfCountries(1);
+
+        Mockito.when(country.getTopNCountriesPopFromLargestToSmallestContinent(c, topN))
+                .thenReturn(countryListRet);
+        List<Country> ret = country.getTopNCountriesPopFromLargestToSmallestContinent(c, topN);
+        assertEquals(ret, countryListRet);
+    }
+
+    @Test
+    public void getLargestToSmallestPartialRegionCountryTest(){
+        Region r = new Region("northamerica");
+        numberOfCountries topN = new numberOfCountries(1);
+
+        Mockito.when(country.getTopNCountriesPopFromLargestToSmallestContinent(r, topN))
+                .thenReturn(countryListRet);
+        List<Country> ret = country.getTopNCountriesPopFromLargestToSmallestContinent(r, topN);
+        assertEquals(ret, countryListRet);
     }
 }

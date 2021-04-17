@@ -42,7 +42,6 @@ public class CountryReport implements Report {
     }
     @Override
     public void largestToSmallestPartialContinent(Continent name, numberOfCountries topN){
-        CountryDAO countryDao = new CountryDAOImpl();
         List<Country> countries = countryDao.getTopNCountriesPopFromLargestToSmallestContinent(name, topN);
         for (Country c:countries){
             System.out.println(c.toString());
@@ -50,7 +49,6 @@ public class CountryReport implements Report {
     }
     @Override
     public void largestToSmallestPartialRegion(Region name, numberOfCountries topN){
-        CountryDAO countryDao = new CountryDAOImpl();
         List<Country> countries = countryDao.getTopNCountriesPopFromLargestToSmallestContinent(name, topN);
         for (Country c:countries){
             System.out.println(c.toString());
