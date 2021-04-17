@@ -12,64 +12,76 @@ public class App {
         COUNTRY(){
             @Override
             public void createReportFor(){
-                Report r=new CountryReport();
+                CountryDAO countryDAO = new CountryDAOImpl();
+                Report r = new CountryReport(countryDAO);
                 r.generateReport();
             }
             @Override
             public void createReportFor(Continent name){
-                Report r=new CountryReport();
+                CountryDAO countryDAO = new CountryDAOImpl();
+                Report r = new CountryReport(countryDAO);
                 r.generateReport(name);
             }
             @Override
             public void createReportFor(Region name){
-                Report r=new CountryReport();
+                CountryDAO countryDAO = new CountryDAOImpl();
+                Report r = new CountryReport(countryDAO);
                 r.generateReport(name);
             }
             @Override
             public void createReportFor(numberOfCountries topN){
-                Report r=new CountryReport();
+                CountryDAO countryDAO = new CountryDAOImpl();
+                Report r = new CountryReport(countryDAO);
                 r.generateReport(topN);
             }
             @Override
             public void createReportFor(Continent name, numberOfCountries topN){
-                Report r = new CountryReport();
+                CountryDAO countryDAO = new CountryDAOImpl();
+                Report r = new CountryReport(countryDAO);
                 r.generateReport(name, topN);
             }
             @Override
             public void createReportFor(Region name, numberOfCountries topN){
-                Report r = new CountryReport();
+                CountryDAO countryDAO = new CountryDAOImpl();
+                Report r = new CountryReport(countryDAO);
                 r.generateReport(name, topN);
             }
         },
         CAPITALCITY() {
             @Override
             public void createReportFor() {
-                Report r = new CapitalCitiesReport();
+                CapitalCitiesDAO capitalCity = new CapitalCitiesDAOImpl();
+                Report r = new CapitalCitiesReport(capitalCity);
                 r.generateReport();
             }
             @Override
             public void createReportFor(Continent name){
-                Report r = new CapitalCitiesReport();
+                CapitalCitiesDAO capitalCity = new CapitalCitiesDAOImpl();
+                Report r = new CapitalCitiesReport(capitalCity);
                 r.generateReport(name);
             }
             @Override
             public void createReportFor(Region name){
-                Report r = new CapitalCitiesReport();
+                CapitalCitiesDAO capitalCity = new CapitalCitiesDAOImpl();
+                Report r = new CapitalCitiesReport(capitalCity);
                 r.generateReport(name);
             }
             @Override
             public void createReportFor(numberOfCountries topN){
-                Report r = new CapitalCitiesReport();
+                CapitalCitiesDAO capitalCity = new CapitalCitiesDAOImpl();
+                Report r = new CapitalCitiesReport(capitalCity);
                 r.generateReport(topN);
             }
             @Override
             public void createReportFor(Continent name, numberOfCountries topN){
-                Report r = new CapitalCitiesReport();
+                CapitalCitiesDAO capitalCity = new CapitalCitiesDAOImpl();
+                Report r = new CapitalCitiesReport(capitalCity);
                 r.generateReport(name, topN);
             }
             @Override
             public void createReportFor(Region name, numberOfCountries topN){
-                Report r = new CapitalCitiesReport();
+                CapitalCitiesDAO capitalCity = new CapitalCitiesDAOImpl();
+                Report r = new CapitalCitiesReport(capitalCity);
                 r.generateReport(name, topN);
             }
         },

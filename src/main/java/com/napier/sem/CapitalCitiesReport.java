@@ -3,50 +3,48 @@ package com.napier.sem;
 import java.util.List;
 
 public class CapitalCitiesReport implements Report {
+    private CapitalCitiesDAO capitalCityDAO;
+    CapitalCitiesReport(CapitalCitiesDAO capitalCity){
+        this.capitalCityDAO = capitalCity;
+    }
     @Override
     public void largestToSmallest(){
-        CapitalCitiesDAO CapitalCitiesDao = new CapitalCitiesDAOImpl();
-        List<CapitalCities> capitalcities = CapitalCitiesDao.getAllCapitalCitiesLargestToSmallestWorld();
+        List<CapitalCities> capitalcities = this.capitalCityDAO.getAllCapitalCitiesLargestToSmallestWorld();
         for (CapitalCities c:capitalcities){
             System.out.println(c.toString()); 
         }
     }
     @Override
     public void largestToSmallestInContinent(Continent continent){
-        CapitalCitiesDAO CapitalCitiesDao = new CapitalCitiesDAOImpl();
-        List<CapitalCities> capitalcities = CapitalCitiesDao.getAllCapitalCitiesLargestToSmallestContinent(continent);
+        List<CapitalCities> capitalcities = this.capitalCityDAO.getAllCapitalCitiesLargestToSmallestContinent(continent);
         for (CapitalCities c:capitalcities){
             System.out.println(c.toString());
         }
     }
     @Override
     public void largestToSmallestInRegion(Region region){
-        CapitalCitiesDAO CapitalCitiesDao = new CapitalCitiesDAOImpl();
-        List<CapitalCities> capitalcities = CapitalCitiesDao.getAllCapitalCitiesLargestToSmallestRegion(region);
+        List<CapitalCities> capitalcities = this.capitalCityDAO.getAllCapitalCitiesLargestToSmallestRegion(region);
         for (CapitalCities c:capitalcities){
             System.out.println(c.toString());
         }
     }
     @Override
     public void largestToSmallestPartial(numberOfCountries topN){
-        CapitalCitiesDAO CapitalCitiesDao = new CapitalCitiesDAOImpl();
-        List<CapitalCities> capitalcities = CapitalCitiesDao.getTopNCapitalCitiesLargestToSmallest(topN);
+        List<CapitalCities> capitalcities = this.capitalCityDAO.getTopNCapitalCitiesLargestToSmallest(topN);
         for (CapitalCities c:capitalcities){
             System.out.println(c.toString());
         }
     }
     @Override
     public void largestToSmallestPartialContinent(Continent name, numberOfCountries topN){
-        CapitalCitiesDAO CapitalCitiesDao = new CapitalCitiesDAOImpl();
-        List<CapitalCities> capitalcities = CapitalCitiesDao.getTopNCapitalCitiesLargestToSmallestContinent(name, topN);
+        List<CapitalCities> capitalcities = this.capitalCityDAO.getTopNCapitalCitiesLargestToSmallestContinent(name, topN);
         for (CapitalCities c:capitalcities){
             System.out.println(c.toString());
         }
     }
     @Override
     public void largestToSmallestPartialRegion(Region name, numberOfCountries topN){
-        CapitalCitiesDAO CapitalCitiesDao = new CapitalCitiesDAOImpl();
-        List<CapitalCities> capitalcities = CapitalCitiesDao.getTopNCapitalCitiesLargestToSmallestRegion(name, topN);
+        List<CapitalCities> capitalcities = this.capitalCityDAO.getTopNCapitalCitiesLargestToSmallestRegion(name, topN);
         for (CapitalCities c:capitalcities){
             System.out.println(c.toString());
         }
