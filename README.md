@@ -20,8 +20,8 @@
 | 5  | The top N populated countries in a continent where N is provided by the user. | Yes |  ![5-countriesTopNContinent](https://github.com/Lindon-Jackasal/sem-1/blob/develop/images/5-countriesTopNContinent.PNG)   |
 | 6  | The top N populated countries in a region where N is provided by the user. | Yes |  ![6-countriesTopNRegion](https://github.com/Lindon-Jackasal/sem-1/blob/develop/images/6-countriesTopNRegion.PNG)   |
 | 7  | All the cities in the world organised by largest population to smallest. | Yes |  ![7-citiesWorld](https://github.com/Lindon-Jackasal/sem-1/blob/develop/images/7-citiesWorld.PNG)   |
-| 8  | All the cities in a continent organised by largest population to smallest. |   |
-| 9  | All the cities in a region organised by largest population to smallest. |   |
+| 8  | All the cities in a continent organised by largest population to smallest. | Yes |  ![8-citiesContinent](https://github.com/Lindon-Jackasal/sem-1/blob/develop/images/8-citiesContinent.PNG)   |
+| 9  | All the cities in a region organised by largest population to smallest. | Yes |  ![9-citiesRegion](https://github.com/Lindon-Jackasal/sem-1/blob/develop/images/9-citiesRegion.PNG)   |
 | 10  | All the cities in a country organised by largest population to smallest. |    |
 | 11  | All the cities in a district organised by largest population to smallest. |    |
 | 12  | The top N populated cities in the world where N is provided by the user. |    |
