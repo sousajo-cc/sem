@@ -46,6 +46,12 @@ public class App {
                 Report r = new CountryReport(countryDAO);
                 r.generateReport(name, topN);
             }
+            @Override
+            public void createReportFor(Ctry name){
+            }
+            @Override
+            public void createReportFor(District name){
+            }
         },
         CAPITALCITY() {
             @Override
@@ -84,6 +90,53 @@ public class App {
                 Report r = new CapitalCitiesReport(capitalCity);
                 r.generateReport(name, topN);
             }
+            @Override
+            public void createReportFor(Ctry name){
+            }
+            @Override
+            public void createReportFor(District name){
+            }
+        },
+        CITY() {
+            @Override
+            public void createReportFor() {
+                CityDAO City = new CityDAOImpl();
+                Report r = new CityReport(City);
+                r.generateReport();
+            }
+            @Override
+            public void createReportFor(Continent name){
+                CityDAO City = new CityDAOImpl();
+                Report r = new CityReport(City);
+                r.generateReport(name);
+            }
+            @Override
+            public void createReportFor(Region name){
+                CityDAO City = new CityDAOImpl();
+                Report r = new CityReport(City);
+                r.generateReport(name);
+            }
+            @Override
+            public void createReportFor(Ctry name){
+                CityDAO City = new CityDAOImpl();
+                Report r = new CityReport(City);
+                r.generateReport(name);
+            }
+            @Override
+            public void createReportFor(District name){
+                CityDAO City = new CityDAOImpl();
+                Report r = new CityReport(City);
+                r.generateReport(name);
+            }
+            @Override
+            public void createReportFor(numberOfCountries topN){
+            }
+            @Override
+            public void createReportFor(Continent name,numberOfCountries topN){
+            }
+            @Override
+            public void createReportFor(Region name,numberOfCountries topN){
+            }
         },
         ;
 
@@ -96,6 +149,8 @@ public class App {
         public abstract void createReportFor(numberOfCountries topN);
         public abstract void createReportFor(Continent name, numberOfCountries topN);
         public abstract void createReportFor(Region name, numberOfCountries topN);
+        public abstract void createReportFor(Ctry name);
+        public abstract void createReportFor(District name);
     }
 
     /**
@@ -116,6 +171,10 @@ public class App {
             t.createReportFor(n);
             t.createReportFor(c, n);
             t.createReportFor(r, n);
+            Ctry ctry = new Ctry("Ireland");
+            t.createReportFor(ctry);
+            District d = new District("Shizuoka");
+            t.createReportFor(d);
         }
     }
 }

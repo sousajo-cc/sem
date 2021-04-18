@@ -16,4 +16,8 @@ public interface Report {
     void generateReport(Continent name, numberOfCountries topN);
     void largestToSmallestPartialRegion(Region name, numberOfCountries topN);
     void generateReport(Region name, numberOfCountries topN);
+    void largestToSmallestInCountry(Ctry name);
+    void generateReport(Ctry name);
+    void largestToSmallestInDistrict(District name);
+    void generateReport(District name);
 }

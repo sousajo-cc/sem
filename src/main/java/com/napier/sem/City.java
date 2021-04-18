@@ -4,36 +4,24 @@ package com.napier.sem;
  * The type City.
  */
 public class City {
-    private final int id;
     private final String name;
-    private final String countryCode;
+    private final String country;
     private final String district;
     private final int population;
 
     /**
      * Instantiates a new City.
      *
-     * @param id          the id
      * @param name        the name
-     * @param countryCode the country code
+     * @param country     the country
      * @param district    the district
      * @param population  the population
      */
-    public City(int id, String name, String countryCode, String district, int population) {
-        this.id = id;
+    public City(String name, String country, String district, int population) {
         this.name = name;
-        this.countryCode = countryCode;
+        this.country = country;
         this.district = district;
         this.population = population;
-    }
-
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public int getId() {
-        return id;
     }
 
     /**
@@ -46,12 +34,12 @@ public class City {
     }
 
     /**
-     * Gets country code.
+     * Gets country.
      *
-     * @return the country code
+     * @return the country
      */
-    public String getCountryCode() {
-        return countryCode;
+    public String getCountry() {
+        return country;
     }
 
     /**
@@ -75,9 +63,8 @@ public class City {
     @Override
     public String toString() {
         return "City{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", countryCode='" + countryCode + '\'' +
+                " name='" + name + '\'' +
+                ", Country='" + country + '\'' +
                 ", district='" + district + '\'' +
                 ", population=" + population +
                 '}';
