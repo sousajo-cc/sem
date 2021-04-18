@@ -15,59 +15,59 @@ public class CityDAOImpl implements CityDAO {
     @Override
     public List<City> getAllCitiesLargestToSmallestWorld() {
         String strSelect = "SELECT world.city.Name, world.country.Name AS 'Country', world.city.District, world.city.Population " +
-                "FROM world.city " +
-                "JOIN world.country " +
-                "ON world.city.CountryCode = world.country.Code " +
-                "ORDER BY world.city.Population " +
-                "DESC";
+                           "FROM world.city " +
+                           "JOIN world.country " +
+                           "ON world.city.CountryCode = world.country.Code " +
+                           "ORDER BY world.city.Population " +
+                           "DESC";
         return getCity(strSelect);
     }
 
     @Override
     public List<City> getAllCitiesLargestToSmallestContinent(Continent continent) {
         String strSelect = "SELECT world.city.Name, world.country.Name AS 'Country', world.city.District, world.city.Population " +
-                "FROM world.city " +
-                "JOIN world.country " +
-                "ON world.city.CountryCode = world.country.Code " +
-                "WHERE LOWER(world.country.Continent) = '" + continent.name.toLowerCase() +
-                "' ORDER BY world.city.Population " +
-                "DESC";
+                           "FROM world.city " +
+                           "JOIN world.country " +
+                           "ON world.city.CountryCode = world.country.Code " +
+                           "WHERE LOWER(world.country.Continent) = '" + continent.name.toLowerCase() +
+                           "' ORDER BY world.city.Population " +
+                           "DESC";
         return getCity(strSelect);
     }
 
     @Override
     public List<City> getAllCitiesLargestToSmallestRegion(Region region) {
         String strSelect = "SELECT world.city.Name, world.country.Name AS 'Country', world.city.District, world.city.Population " +
-                "FROM world.city " +
-                "JOIN world.country " +
-                "ON world.city.CountryCode = world.country.Code " +
-                "WHERE LOWER(REPLACE(Region,' ', '')) = '" + region.name.toLowerCase() +
-                "' ORDER BY world.city.Population " +
-                "DESC";
+                           "FROM world.city " +
+                           "JOIN world.country " +
+                           "ON world.city.CountryCode = world.country.Code " +
+                           "WHERE LOWER(REPLACE(Region,' ', '')) = '" + region.name.toLowerCase() +
+                           "' ORDER BY world.city.Population " +
+                           "DESC";
         return getCity(strSelect);
     }
 
     @Override
     public List<City> getAllCitiesLargestToSmallestCountry(Ctry country) {
         String strSelect = "SELECT world.city.Name, world.country.Name AS 'Country', world.city.District, world.city.Population " +
-                "FROM world.city " +
-                "JOIN world.country " +
-                "ON world.city.CountryCode = world.country.Code " +
-                "WHERE LOWER(world.country.Name) = '" + country.name.toLowerCase() +
-                "' ORDER BY world.city.Population " +
-                "DESC";
+                           "FROM world.city " +
+                           "JOIN world.country " +
+                           "ON world.city.CountryCode = world.country.Code " +
+                           "WHERE LOWER(world.country.Name) = '" + country.name.toLowerCase() +
+                           "' ORDER BY world.city.Population " +
+                           "DESC";
         return getCity(strSelect);
     }
 
     @Override
     public List<City> getAllCitiesLargestToSmallestDistrict(District district) {
         String strSelect = "SELECT world.city.Name, world.country.Name AS 'Country', world.city.District, world.city.Population " +
-                "FROM world.city " +
-                "JOIN world.country " +
-                "ON world.city.CountryCode = world.country.Code " +
-                "WHERE LOWER(world.city.District) = '" + district.name.toLowerCase() +
-                "' ORDER BY world.city.Population " +
-                "DESC";
+                           "FROM world.city " +
+                           "JOIN world.country " +
+                           "ON world.city.CountryCode = world.country.Code " +
+                           "WHERE LOWER(world.city.District) = '" + district.name.toLowerCase() +
+                           "' ORDER BY world.city.Population " +
+                           "DESC";
         return getCity(strSelect);
     }
 
