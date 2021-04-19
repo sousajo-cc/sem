@@ -73,4 +73,16 @@ public class CapitalCitiesReport implements Report {
     public void generateReport(Region name, numberOfCountries topN){
         largestToSmallestPartialRegion(name, topN);
     }
+    @Override
+    public void largestToSmallestInCountry(Ctry name) {
+    }
+    @Override
+    public void generateReport(Ctry name) {
+    }
+    @Override
+    public void largestToSmallestInDistrict(District name) {
+    }
+    @Override
+    public void generateReport(District name) {
+    }
 }
