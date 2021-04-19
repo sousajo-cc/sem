@@ -90,4 +90,16 @@ public class CountryReport implements Report {
     @Override
     public void generateReport(District name) {
     }
+    @Override
+    public void largestToSmallestPartialCountry(Ctry name, numberOfCountries topN) {
+    }
+    @Override
+    public void generateReport(Ctry name, numberOfCountries topN) {
+    }
+    @Override
+    public void largestToSmallestPartialDistrict(District name, numberOfCountries topN) {
+    }
+    @Override
+    public void generateReport(District name, numberOfCountries topN) {
+    }
 }

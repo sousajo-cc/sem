@@ -30,6 +30,10 @@ public class CityReport implements Report {
     }
     @Override
     public void largestToSmallestPartial(numberOfCountries topN){
+        List<City> cities = this.CityDAO.getTopNCitiesLargestToSmallest(topN);
+        for (City c:cities){
+            System.out.println(c.toString());
+        }
     }
     @Override
     public void generateReport(){
@@ -45,18 +49,29 @@ public class CityReport implements Report {
     }
     @Override
     public void generateReport(numberOfCountries topN){
+        largestToSmallestPartial(topN);
     }
     @Override
-    public void largestToSmallestPartialContinent(Continent name,numberOfCountries topN){
+    public void largestToSmallestPartialContinent(Continent name, numberOfCountries topN){
+        List<City> cities = this.CityDAO.getTopNCitiesLargestToSmallestContinent(name, topN);
+        for (City c:cities){
+            System.out.println(c.toString());
+        }
     }
     @Override
-    public void generateReport(Continent name,numberOfCountries topN){
+    public void generateReport(Continent name, numberOfCountries topN){
+        largestToSmallestPartialContinent(name, topN);
     }
     @Override
-    public void largestToSmallestPartialRegion(Region name,numberOfCountries topN){
+    public void largestToSmallestPartialRegion(Region name, numberOfCountries topN){
+        List<City> cities = this.CityDAO.getTopNCitiesLargestToSmallestRegion(name, topN);
+        for (City c:cities){
+            System.out.println(c.toString());
+        }
     }
     @Override
-    public void generateReport(Region name,numberOfCountries topN){
+    public void generateReport(Region name, numberOfCountries topN){
+        largestToSmallestPartialRegion(name, topN);
     }
     @Override
     public void largestToSmallestInCountry(Ctry country){
@@ -79,5 +94,27 @@ public class CityReport implements Report {
     @Override
     public void generateReport(District name){
         largestToSmallestInDistrict(name);
+    }
+    @Override
+    public void largestToSmallestPartialCountry(Ctry name, numberOfCountries topN){
+        List<City> cities = this.CityDAO.getTopNCitiesLargestToSmallestCountry(name, topN);
+        for (City c:cities){
+            System.out.println(c.toString());
+        }
+    }
+    @Override
+    public void generateReport(Ctry name, numberOfCountries topN){
+        largestToSmallestPartialCountry(name, topN);
+    }
+    @Override
+    public void largestToSmallestPartialDistrict(District name, numberOfCountries topN){
+        List<City> cities = this.CityDAO.getTopNCitiesLargestToSmallestDistrict(name, topN);
+        for (City c:cities){
+            System.out.println(c.toString());
+        }
+    }
+    @Override
+    public void generateReport(District name, numberOfCountries topN){
+        largestToSmallestPartialDistrict(name, topN);
     }
 }

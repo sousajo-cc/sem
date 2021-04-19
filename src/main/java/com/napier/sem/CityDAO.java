@@ -16,9 +16,9 @@ public interface CityDAO{
     List<City> getAllCitiesLargestToSmallestRegion(Region region);
     List<City> getAllCitiesLargestToSmallestCountry(Ctry country);
     List<City> getAllCitiesLargestToSmallestDistrict(District district);
-    /*List<City> getTopNCitiesLargestToSmallest(numberOfCountries topN);
+    List<City> getTopNCitiesLargestToSmallest(numberOfCountries topN);
     List<City> getTopNCitiesLargestToSmallestContinent(Continent continent, numberOfCountries topN);
     List<City> getTopNCitiesLargestToSmallestRegion(Region region, numberOfCountries topN);
-    List<City> getTopNCitiesLargestToSmallestCountry(Country country, numberOfCountries topN);
-    List<City> getTopNCitiesLargestToSmallestDistrict(District district, numberOfCountries topN);*/
+    List<City> getTopNCitiesLargestToSmallestCountry(Ctry country, numberOfCountries topN);
+    List<City> getTopNCitiesLargestToSmallestDistrict(District district, numberOfCountries topN);
 }
