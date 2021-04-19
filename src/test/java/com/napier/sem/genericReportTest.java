@@ -65,6 +65,50 @@ public class genericReportTest {
     }
 
     @Test
+    public void populationInRegionTest() throws Exception {
+        Region r = new Region("northamerica");
+        genericReport genericReport = new genericReport(g);
+        Mockito.when(g.getAllPopulationInARegion(r.name))
+                .thenReturn(mockedReturn);
+        ByteArrayOutputStream buf = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(buf));
+        genericReport.generateReport(r);
+        buf.flush();
+        String allWrittenLines = buf.toString();
+        System.out.println(allWrittenLines);
+        assertTrue(allWrittenLines.contains("mockedReturn"));
+    }
+
+    @Test
+    public void populationInContinentTest() throws Exception {
+        Continent r = new Continent("Europe");
+        genericReport genericReport = new genericReport(g);
+        Mockito.when(g.getAllPopulationInAContinent(r.name))
+                .thenReturn(mockedReturn);
+        ByteArrayOutputStream buf = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(buf));
+        genericReport.generateReport(r);
+        buf.flush();
+        String allWrittenLines = buf.toString();
+        System.out.println(allWrittenLines);
+        assertTrue(allWrittenLines.contains("mockedReturn"));
+    }
+
+    @Test
+    public void populationTest() throws Exception {
+        genericReport genericReport = new genericReport(g);
+        Mockito.when(g.getAllPopulation())
+                .thenReturn(mockedReturn);
+        ByteArrayOutputStream buf = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(buf));
+        genericReport.populationReport();
+        buf.flush();
+        String allWrittenLines = buf.toString();
+        System.out.println(allWrittenLines);
+        assertTrue(allWrittenLines.contains("mockedReturn"));
+    }
+
+    @Test
     public void generateReportTest() throws Exception {
         genericReport genericReport = new genericReport(g);
         Mockito.when(g.getPopulationInfoByRegion())
@@ -79,11 +123,11 @@ public class genericReportTest {
         verify(g, times(1)).getPopulationInfoByRegion();
         verify(g, times(1)).getPopulationInfoByContinent();
         verify(g, times(1)).getPopulationInfoByCountry();
+        verify(g, times(1)).getAllPopulation();
+        verify(g, times(1)).getLanguagesInfo();
         buf.flush();
         String allWrittenLines = buf.toString();
         System.out.println(allWrittenLines);
         assertTrue(allWrittenLines.contains("mockedReturn"));
     }
-
-
 }

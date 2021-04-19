@@ -17,7 +17,7 @@ class CapitalCitiesDAOImplTest {
     /**
      * The Country.
      */
-    private CapitalCitiesDAO capitalCity;
+    private CapitalCitiesDAOImpl capitalCity;
     /**
      * The Country list ret.
      */
