@@ -180,9 +180,15 @@ public class App {
             }
             @Override
             public void createReportFor(Continent name){
+                genericReportDAO g = new genericReportDAOImpl();
+                genericReport r = new genericReport(g);
+                r.generateReport(name);
             }
             @Override
             public void createReportFor(Region name){
+                genericReportDAO g = new genericReportDAOImpl();
+                genericReport r = new genericReport(g);
+                r.generateReport(name);
             }
             @Override
             public void createReportFor(numberOfCountries topN){

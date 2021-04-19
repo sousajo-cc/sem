@@ -3,7 +3,7 @@ package com.napier.sem;
 import java.util.List;
 
 public class CityReport implements Report {
-    private CityDAO CityDAO;
+    private final CityDAO CityDAO;
     CityReport(CityDAO capitalCity){
         this.CityDAO = capitalCity;
     }

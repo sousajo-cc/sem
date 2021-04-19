@@ -1,13 +1,15 @@
 package com.napier.sem;
 
+import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
 
 public class genericReportDAOImpl implements genericReportDAO {
-    public String strResultContinent;
-    public String strResultRegion;
+
     @Override
     public String getPopulationInfoByCountry() {
         String strSelect = "select country.code, country.Population as countryPopulation, " +
@@ -39,7 +41,89 @@ public class genericReportDAOImpl implements genericReportDAO {
         return getPopulationInfoByContinent(strSelect);
     }
 
+    public String getAllPopulation() {
+        String strSelect = "select sum(country.Population) as totalPopulation " +
+                "from country ";
+        return getAllPopulationResults(strSelect);
+    }
 
+    public String getAllPopulationInAContinent(String continent) {
+        String strSelect = "select sum(country.Population) as totalPopulation " +
+                "from country where country.Continent = '" + continent + "'" ;
+        return getAllContinentPopulationResults(strSelect, continent);
+    }
+
+    public String getAllPopulationInARegion(String region) {
+        String strSelect = "select sum(country.Population) as totalPopulation " +
+                "from country where LOWER(REPLACE(country.Region,' ', '')) = '" + region + "'" ;
+        return getAllRegionPopulationResults(strSelect, region);
+    }
+
+    public String getAllPopulationResults(String queryString){
+        StringBuilder strResultAll = new StringBuilder();
+        ConnectionManager dbCon = new ConnectionManager();
+        Connection con = dbCon.getConnection();
+        try {
+            Statement stmt = con.createStatement();
+
+            ResultSet results = stmt.executeQuery(queryString);
+            strResultAll.append("Number of people in the world:\n");
+
+            while (results.next()) {
+                strResultAll.append("\nTotal Population:")
+                        .append(results.getString("totalPopulation"));
+            }
+            results.close();
+            con.close();
+        } catch (SQLException e) {
+            return "";
+        }
+        return strResultAll.toString();
+    }
+    public String getAllRegionPopulationResults(String queryString, String region){
+        StringBuilder strResultAll = new StringBuilder();
+        ConnectionManager dbCon = new ConnectionManager();
+        Connection con = dbCon.getConnection();
+        try {
+            Statement stmt = con.createStatement();
+
+            ResultSet results = stmt.executeQuery(queryString);
+            strResultAll.append("Number of people in the Region: ");
+            strResultAll.append(region);
+            strResultAll.append("\n");
+            while (results.next()) {
+                strResultAll.append("\nTotal Population:")
+                        .append(results.getString("totalPopulation"));
+            }
+            results.close();
+            con.close();
+        } catch (SQLException e) {
+            return "";
+        }
+        return strResultAll.toString();
+    }
+    public String getAllContinentPopulationResults(String queryString, String continent){
+        StringBuilder strResultAll = new StringBuilder();
+        ConnectionManager dbCon = new ConnectionManager();
+        Connection con = dbCon.getConnection();
+        try {
+            Statement stmt = con.createStatement();
+
+            ResultSet results = stmt.executeQuery(queryString);
+            strResultAll.append("Number of people in the continent: ");
+            strResultAll.append(continent);
+            strResultAll.append("\n");
+            while (results.next()) {
+                strResultAll.append("\nTotal Population:")
+                        .append(results.getString("totalPopulation"));
+            }
+            results.close();
+            con.close();
+        } catch (SQLException e) {
+            return "";
+        }
+        return strResultAll.toString();
+    }
     public String getPopulationInfoByCountry(String queryString){
         StringBuilder strResultCountry = new StringBuilder();
         ConnectionManager dbCon = new ConnectionManager();
@@ -62,12 +146,11 @@ public class genericReportDAOImpl implements genericReportDAO {
             }
             results.close();
             con.close();
-        } catch (SQLException ignored) {
+        } catch (SQLException e) {
+            return "";
         }
         return strResultCountry.toString();
     }
-
-
     public String getPopulationInfoByRegion(String queryString){
         StringBuilder strResultRegion = new StringBuilder();
         ConnectionManager dbCon = new ConnectionManager();
@@ -91,7 +174,8 @@ public class genericReportDAOImpl implements genericReportDAO {
             }
             results.close();
             con.close();
-        } catch (SQLException ignored) {
+        } catch (SQLException e) {
+            return "";
         }
         return strResultRegion.toString();
     }
@@ -116,9 +200,67 @@ public class genericReportDAOImpl implements genericReportDAO {
 
             results.close();
             con.close();
-        } catch (SQLException ignored) {
+        } catch (SQLException e) {
+            return "";
         }
         return strResultContinent.toString();
+    }
+
+    public Map<String, String> getLanguagesInfo(){
+        Map<String, String> languagesSpoken = new HashMap<>();
+
+        StringBuilder totalWorldPopulation = new StringBuilder();
+        ConnectionManager dbCon = new ConnectionManager();
+        Connection con = dbCon.getConnection();
+        try {
+            Statement stmt = con.createStatement();
+            String query = "select sum(country.Population) as pop " +
+                    "from country" ;
+            ResultSet results = stmt.executeQuery(query);
+            while (results.next()) {
+                totalWorldPopulation.append(results.getString("pop"));
+            }
+            System.out.println(totalWorldPopulation.toString());
+            BigInteger worldPop = new BigInteger(totalWorldPopulation.toString());
+            results.close();
+            BigInteger peopleSpeakingChinesePercentage = getPercentageOfPeopleSpeaking("Chinese", con, worldPop);
+            results.close();
+            BigInteger peopleSpeakingEnglishPercentage = getPercentageOfPeopleSpeaking("English", con, worldPop);
+            results.close();
+            BigInteger peopleSpeakingHindiPercentage = getPercentageOfPeopleSpeaking("Hindi", con, worldPop);
+            results.close();
+            BigInteger peopleSpeakingSpanishPercentage = getPercentageOfPeopleSpeaking("Spanish", con, worldPop);
+            results.close();
+            BigInteger peopleSpeakingArabicPercentage = getPercentageOfPeopleSpeaking("Arabic", con, worldPop);
+            languagesSpoken.put("Chinese", peopleSpeakingChinesePercentage.toString());
+            languagesSpoken.put("English", peopleSpeakingEnglishPercentage.toString());
+            languagesSpoken.put("Hindi", peopleSpeakingHindiPercentage.toString());
+            languagesSpoken.put("Spanish", peopleSpeakingSpanishPercentage.toString());
+            languagesSpoken.put("Arabic", peopleSpeakingArabicPercentage.toString());
+            con.close();
+            return languagesSpoken;
+        } catch (SQLException e) {
+            return languagesSpoken;
+        }
+    }
+
+    private BigInteger getPercentageOfPeopleSpeaking(String language, Connection con, BigInteger worldPop) throws SQLException {
+        ResultSet results;
+        Statement stmt;
+        String query;
+        stmt = con.createStatement();
+        StringBuilder totalPopulationSpeakingLanguage = new StringBuilder();
+        query = "select cast(sum(country.Population * (countrylanguage.percentage/100)) as UNSIGNED) " +
+                "as numberOfPeopleSpeakingTheLanguage " +
+                "from countrylanguage " +
+                "left join country on country.Code = countrylanguage.CountryCode " +
+                "where countrylanguage.Language = '" + language + "'";
+        results = stmt.executeQuery(query);
+        while (results.next()) {
+            totalPopulationSpeakingLanguage.append(results.getString("numberOfPeopleSpeakingTheLanguage"));
+        }
+        BigInteger peopleSpeakingLangugage= new BigInteger(totalPopulationSpeakingLanguage.toString());
+        return peopleSpeakingLangugage.divide(worldPop).multiply(BigInteger.valueOf(100));
     }
 }
 
