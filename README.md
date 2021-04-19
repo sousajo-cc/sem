@@ -24,11 +24,11 @@
 | 9  | All the cities in a region organised by largest population to smallest. | Yes |  ![9-citiesRegion](images/9-citiesRegion.PNG)   |
 | 10  | All the cities in a country organised by largest population to smallest. | Yes |  ![10-citiesCountry](images/10-citiesCountry.PNG)   |
 | 11  | All the cities in a district organised by largest population to smallest. | Yes |  ![11-citiesDistrict](images/11-citiesDistrict.PNG)   |
-| 12  | The top N populated cities in the world where N is provided by the user. |    |
-| 13  | The top N populated cities in a continent where N is provided by the user. |    |
-| 14  | The top N populated cities in a region where N is provided by the user. |    |
-| 15  | The top N populated cities in a country where N is provided by the user. |    |
-| 16  | The top N populated cities in a district where N is provided by the user. |    |
+| 12  | The top N populated cities in the world where N is provided by the user. | Yes |  ![12-citiesTopNWorld](images/12-citiesTopNWorld.PNG)   |
+| 13  | The top N populated cities in a continent where N is provided by the user. | Yes |  ![13-citiesTopNContinent](images/13-citiesTopNContinent.PNG)   |
+| 14  | The top N populated cities in a region where N is provided by the user. | Yes |  ![14-citiesTopNRegion](images/14-citiesTopNRegion.PNG)   |
+| 15  | The top N populated cities in a country where N is provided by the user. | Yes |  ![15-citiesTopNCountry](images/15-citiesTopNCountry.PNG)   |
+| 16  | The top N populated cities in a district where N is provided by the user. | Yes |  ![16-citiesTopNDistrict](images/16-citiesTopNDistrict.PNG)   |
 | 17  | All the capital cities in the world organised by largest population to smallest. | Yes |  ![17-capitalCitiesWorld](images/17-capitalCitiesWorld.PNG)   |
 | 18  | All the capital cities in a continent organised by largest population to smallest. | Yes |  ![18-capitalCitiesContinent](images/18-capitalCitiesContinent.PNG)   |
 | 19  | All the capital cities in a region organised by largest to smallest. | Yes |  ![19-capitalCitiesRegion](images/19-capitalCitiesRegion.PNG)   |

@@ -52,6 +52,12 @@ public class App {
             @Override
             public void createReportFor(District name){
             }
+            @Override
+            public void createReportFor(Ctry name, numberOfCountries topN){
+            }
+            @Override
+            public void createReportFor(District name, numberOfCountries topN){
+            }
         },
         CAPITALCITY() {
             @Override
@@ -96,6 +102,12 @@ public class App {
             @Override
             public void createReportFor(District name){
             }
+            @Override
+            public void createReportFor(Ctry name, numberOfCountries topN){
+            }
+            @Override
+            public void createReportFor(District name, numberOfCountries topN){
+            }
         },
         CITY() {
             @Override
@@ -130,12 +142,33 @@ public class App {
             }
             @Override
             public void createReportFor(numberOfCountries topN){
+                CityDAO City = new CityDAOImpl();
+                Report r = new CityReport(City);
+                r.generateReport(topN);
             }
             @Override
-            public void createReportFor(Continent name,numberOfCountries topN){
+            public void createReportFor(Continent name, numberOfCountries topN){
+                CityDAO City = new CityDAOImpl();
+                Report r = new CityReport(City);
+                r.generateReport(name, topN);
             }
             @Override
-            public void createReportFor(Region name,numberOfCountries topN){
+            public void createReportFor(Region name, numberOfCountries topN){
+                CityDAO City = new CityDAOImpl();
+                Report r = new CityReport(City);
+                r.generateReport(name, topN);
+            }
+            @Override
+            public void createReportFor(Ctry name, numberOfCountries topN){
+                CityDAO City = new CityDAOImpl();
+                Report r = new CityReport(City);
+                r.generateReport(name, topN);
+            }
+            @Override
+            public void createReportFor(District name, numberOfCountries topN){
+                CityDAO City = new CityDAOImpl();
+                Report r = new CityReport(City);
+                r.generateReport(name, topN);
             }
         },
         GENERIC_REPORTS() {
@@ -147,29 +180,30 @@ public class App {
             }
             @Override
             public void createReportFor(Continent name){
-
             }
             @Override
             public void createReportFor(Region name){
-
             }
             @Override
             public void createReportFor(numberOfCountries topN){
-
             }
             @Override
             public void createReportFor(Continent name, numberOfCountries topN){
-
             }
             @Override
             public void createReportFor(Region name, numberOfCountries topN){
-
             }
             @Override
             public void createReportFor(Ctry name){
             }
             @Override
             public void createReportFor(District name){
+            }
+            @Override
+            public void createReportFor(Ctry name, numberOfCountries topN){
+            }
+            @Override
+            public void createReportFor(District name, numberOfCountries topN){
             }
         },
         ;
@@ -185,6 +219,8 @@ public class App {
         public abstract void createReportFor(Region name, numberOfCountries topN);
         public abstract void createReportFor(Ctry name);
         public abstract void createReportFor(District name);
+        public abstract void createReportFor(Ctry name, numberOfCountries topN);
+        public abstract void createReportFor(District name, numberOfCountries topN);
     }
 
     /**
@@ -209,6 +245,8 @@ public class App {
             t.createReportFor(ctry);
             District d = new District("Shizuoka");
             t.createReportFor(d);
+            t.createReportFor(ctry, n);
+            t.createReportFor(d, n);
         }
     }
 }

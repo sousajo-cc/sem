@@ -20,4 +20,8 @@ public interface Report {
     void generateReport(Ctry name);
     void largestToSmallestInDistrict(District name);
     void generateReport(District name);
+    void largestToSmallestPartialCountry(Ctry name, numberOfCountries topN);
+    void generateReport(Ctry name, numberOfCountries topN);
+    void largestToSmallestPartialDistrict(District name, numberOfCountries topN);
+    void generateReport(District name, numberOfCountries topN);
 }
