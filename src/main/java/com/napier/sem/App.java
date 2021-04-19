@@ -138,6 +138,40 @@ public class App {
             public void createReportFor(Region name,numberOfCountries topN){
             }
         },
+        GENERIC_REPORTS() {
+            @Override
+            public void createReportFor() {
+                genericReportDAO g = new genericReportDAOImpl();
+                genericReport r = new genericReport(g);
+                r.generateReport();
+            }
+            @Override
+            public void createReportFor(Continent name){
+
+            }
+            @Override
+            public void createReportFor(Region name){
+
+            }
+            @Override
+            public void createReportFor(numberOfCountries topN){
+
+            }
+            @Override
+            public void createReportFor(Continent name, numberOfCountries topN){
+
+            }
+            @Override
+            public void createReportFor(Region name, numberOfCountries topN){
+
+            }
+            @Override
+            public void createReportFor(Ctry name){
+            }
+            @Override
+            public void createReportFor(District name){
+            }
+        },
         ;
 
         /**
