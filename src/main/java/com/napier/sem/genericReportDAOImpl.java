@@ -1,6 +1,8 @@
 package com.napier.sem;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -223,15 +225,15 @@ public class genericReportDAOImpl implements genericReportDAO {
             System.out.println(totalWorldPopulation.toString());
             BigInteger worldPop = new BigInteger(totalWorldPopulation.toString());
             results.close();
-            BigInteger peopleSpeakingChinesePercentage = getPercentageOfPeopleSpeaking("Chinese", con, worldPop);
+            BigDecimal peopleSpeakingChinesePercentage = getPercentageOfPeopleSpeaking("Chinese", con, worldPop);
             results.close();
-            BigInteger peopleSpeakingEnglishPercentage = getPercentageOfPeopleSpeaking("English", con, worldPop);
+            BigDecimal peopleSpeakingEnglishPercentage = getPercentageOfPeopleSpeaking("English", con, worldPop);
             results.close();
-            BigInteger peopleSpeakingHindiPercentage = getPercentageOfPeopleSpeaking("Hindi", con, worldPop);
+            BigDecimal peopleSpeakingHindiPercentage = getPercentageOfPeopleSpeaking("Hindi", con, worldPop);
             results.close();
-            BigInteger peopleSpeakingSpanishPercentage = getPercentageOfPeopleSpeaking("Spanish", con, worldPop);
+            BigDecimal peopleSpeakingSpanishPercentage = getPercentageOfPeopleSpeaking("Spanish", con, worldPop);
             results.close();
-            BigInteger peopleSpeakingArabicPercentage = getPercentageOfPeopleSpeaking("Arabic", con, worldPop);
+            BigDecimal peopleSpeakingArabicPercentage = getPercentageOfPeopleSpeaking("Arabic", con, worldPop);
             languagesSpoken.put("Chinese", peopleSpeakingChinesePercentage.toString());
             languagesSpoken.put("English", peopleSpeakingEnglishPercentage.toString());
             languagesSpoken.put("Hindi", peopleSpeakingHindiPercentage.toString());
@@ -244,7 +246,7 @@ public class genericReportDAOImpl implements genericReportDAO {
         }
     }
 
-    private BigInteger getPercentageOfPeopleSpeaking(String language, Connection con, BigInteger worldPop) throws SQLException {
+    private BigDecimal getPercentageOfPeopleSpeaking(String language, Connection con, BigInteger worldPop) throws SQLException {
         ResultSet results;
         Statement stmt;
         String query;
@@ -260,7 +262,9 @@ public class genericReportDAOImpl implements genericReportDAO {
             totalPopulationSpeakingLanguage.append(results.getString("numberOfPeopleSpeakingTheLanguage"));
         }
         BigInteger peopleSpeakingLangugage= new BigInteger(totalPopulationSpeakingLanguage.toString());
-        return peopleSpeakingLangugage.divide(worldPop).multiply(BigInteger.valueOf(100));
+        BigDecimal peopleSpeakingLanguageD = new BigDecimal(peopleSpeakingLangugage);
+        BigDecimal worldPopD = new BigDecimal(worldPop);
+        return new BigDecimal(String.valueOf(peopleSpeakingLanguageD.divide(worldPopD, 3, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100))));
     }
 }
 
