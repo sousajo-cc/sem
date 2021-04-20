@@ -11,17 +11,31 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+/**
+ * The type Generic report test.
+ */
 public class genericReportTest {
     private genericReportDAOImpl g;
+    /**
+     * The Mocked return.
+     */
     String mockedReturn = "mockedReturn";
 
 
+    /**
+     * Sets up.
+     */
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         g = mock(genericReportDAOImpl.class);
     }
 
 
+    /**
+     * Population report by country test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void populationReportByCountryTest() throws Exception {
         genericReport genericReport = new genericReport(g);
@@ -36,6 +50,11 @@ public class genericReportTest {
         assertTrue(allWrittenLines.contains("mockedReturn"));
     }
 
+    /**
+     * Population report by continent test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void populationReportByContinentTest() throws Exception {
         genericReport genericReport = new genericReport(g);
@@ -50,6 +69,11 @@ public class genericReportTest {
         assertTrue(allWrittenLines.contains("mockedReturn"));
     }
 
+    /**
+     * Population report by region test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void populationReportByRegionTest() throws Exception {
         genericReport genericReport = new genericReport(g);
@@ -64,6 +88,11 @@ public class genericReportTest {
         assertTrue(allWrittenLines.contains("mockedReturn"));
     }
 
+    /**
+     * Population in region test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void populationInRegionTest() throws Exception {
         Region r = new Region("northamerica");
@@ -79,6 +108,11 @@ public class genericReportTest {
         assertTrue(allWrittenLines.contains("mockedReturn"));
     }
 
+    /**
+     * Population in continent test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void populationInContinentTest() throws Exception {
         Continent r = new Continent("Europe");
@@ -94,6 +128,11 @@ public class genericReportTest {
         assertTrue(allWrittenLines.contains("mockedReturn"));
     }
 
+    /**
+     * Population test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void populationTest() throws Exception {
         genericReport genericReport = new genericReport(g);
@@ -108,6 +147,11 @@ public class genericReportTest {
         assertTrue(allWrittenLines.contains("mockedReturn"));
     }
 
+    /**
+     * Generate report test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void generateReportTest() throws Exception {
         genericReport genericReport = new genericReport(g);

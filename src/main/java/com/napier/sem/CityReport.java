@@ -2,8 +2,17 @@ package com.napier.sem;
 
 import java.util.List;
 
+/**
+ * The type City report.
+ */
 public class CityReport implements Report {
     private final CityDAO CityDAO;
+
+    /**
+     * Instantiates a new City report.
+     *
+     * @param capitalCity the capital city
+     */
     CityReport(CityDAO capitalCity){
         this.CityDAO = capitalCity;
     }

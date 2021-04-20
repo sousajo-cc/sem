@@ -12,11 +12,17 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
+/**
+ * The type Capital cities report test.
+ */
 public class CapitalCitiesReportTest {
     private CapitalCitiesDAOImpl capitalCity;
     private List<Country> countryListRet;
     private List<CapitalCities> capitalCitiesListRet;
 
+    /**
+     * Sets up.
+     */
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         capitalCity = mock(CapitalCitiesDAOImpl.class);
@@ -29,6 +35,11 @@ public class CapitalCitiesReportTest {
     }
 
 
+    /**
+     * Largest to smallest test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void largestToSmallestTest() throws Exception {
         Mockito.when(capitalCity.getAllCapitalCitiesLargestToSmallestWorld())
@@ -43,6 +54,11 @@ public class CapitalCitiesReportTest {
         assertTrue(allWrittenLines.contains("United States Minor Outlying Islands"));
     }
 
+    /**
+     * Largest to smallest in continent test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void largestToSmallestInContinentTest() throws Exception {
         Continent c = new Continent("europe");
@@ -57,6 +73,11 @@ public class CapitalCitiesReportTest {
         assertTrue(allWrittenLines.contains("United States Minor Outlying Islands"));
     }
 
+    /**
+     * Largest to smallest in region test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void largestToSmallestInRegionTest() throws Exception {
         Region r = new Region("northamerica");
@@ -72,6 +93,11 @@ public class CapitalCitiesReportTest {
         assertTrue(allWrittenLines.contains("United States Minor Outlying Islands"));
     }
 
+    /**
+     * Largest to smallest in region partial test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void largestToSmallestInRegionPartialTest() throws Exception {
         numberOfCountries topN = new numberOfCountries(1);
@@ -87,6 +113,11 @@ public class CapitalCitiesReportTest {
         assertTrue(allWrittenLines.contains("United States Minor Outlying Islands"));
     }
 
+    /**
+     * Largest to smallest partial continent test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void largestToSmallestPartialContinentTest() throws Exception {
         Continent c = new Continent("europe");
@@ -103,6 +134,11 @@ public class CapitalCitiesReportTest {
         assertTrue(allWrittenLines.contains("United States Minor Outlying Islands"));
     }
 
+    /**
+     * Largest to smallest partial region test.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void largestToSmallestPartialRegionTest() throws Exception {
         Region r = new Region("northamerica");
