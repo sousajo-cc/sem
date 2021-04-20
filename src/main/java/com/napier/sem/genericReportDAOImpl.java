@@ -10,6 +10,9 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The type Generic report dao.
+ */
 public class genericReportDAOImpl implements genericReportDAO {
 
     @Override
@@ -61,6 +64,12 @@ public class genericReportDAOImpl implements genericReportDAO {
         return getAllRegionPopulationResults(strSelect, region);
     }
 
+    /**
+     * Get all population results string.
+     *
+     * @param queryString the query string
+     * @return the string
+     */
     public String getAllPopulationResults(String queryString){
         StringBuilder strResultAll = new StringBuilder();
         ConnectionManager dbCon = new ConnectionManager();
@@ -82,6 +91,14 @@ public class genericReportDAOImpl implements genericReportDAO {
         }
         return strResultAll.toString();
     }
+
+    /**
+     * Get all region population results string.
+     *
+     * @param queryString the query string
+     * @param region      the region
+     * @return the string
+     */
     public String getAllRegionPopulationResults(String queryString, String region){
         StringBuilder strResultAll = new StringBuilder();
         ConnectionManager dbCon = new ConnectionManager();
@@ -104,6 +121,14 @@ public class genericReportDAOImpl implements genericReportDAO {
         }
         return strResultAll.toString();
     }
+
+    /**
+     * Get all continent population results string.
+     *
+     * @param queryString the query string
+     * @param continent   the continent
+     * @return the string
+     */
     public String getAllContinentPopulationResults(String queryString, String continent){
         StringBuilder strResultAll = new StringBuilder();
         ConnectionManager dbCon = new ConnectionManager();
@@ -126,6 +151,13 @@ public class genericReportDAOImpl implements genericReportDAO {
         }
         return strResultAll.toString();
     }
+
+    /**
+     * Get population info by country string.
+     *
+     * @param queryString the query string
+     * @return the string
+     */
     public String getPopulationInfoByCountry(String queryString){
         StringBuilder strResultCountry = new StringBuilder();
         ConnectionManager dbCon = new ConnectionManager();
@@ -153,6 +185,13 @@ public class genericReportDAOImpl implements genericReportDAO {
         }
         return strResultCountry.toString();
     }
+
+    /**
+     * Get population info by region string.
+     *
+     * @param queryString the query string
+     * @return the string
+     */
     public String getPopulationInfoByRegion(String queryString){
         StringBuilder strResultRegion = new StringBuilder();
         ConnectionManager dbCon = new ConnectionManager();
@@ -181,6 +220,13 @@ public class genericReportDAOImpl implements genericReportDAO {
         }
         return strResultRegion.toString();
     }
+
+    /**
+     * Get population info by continent string.
+     *
+     * @param queryString the query string
+     * @return the string
+     */
     public String getPopulationInfoByContinent(String queryString){
         StringBuilder strResultContinent = new StringBuilder();
         ConnectionManager dbCon = new ConnectionManager();
@@ -272,6 +318,14 @@ public class genericReportDAOImpl implements genericReportDAO {
                 "from country WHERE LOWER(world.country.Name) = '" + country.toLowerCase() + "'" ;
         return getAllCountryPopulationResults(strSelect, country);
     }
+
+    /**
+     * Get all country population results string.
+     *
+     * @param queryString the query string
+     * @param country     the country
+     * @return the string
+     */
     public String getAllCountryPopulationResults(String queryString, String country){
         StringBuilder strResultAll = new StringBuilder();
         ConnectionManager dbCon = new ConnectionManager();
@@ -300,6 +354,14 @@ public class genericReportDAOImpl implements genericReportDAO {
                 "from world.city WHERE LOWER(world.city.District) = '" + district.toLowerCase() + "'" ;
         return getAllDistrictPopulationResults(strSelect, district);
     }
+
+    /**
+     * Get all district population results string.
+     *
+     * @param queryString the query string
+     * @param district    the district
+     * @return the string
+     */
     public String getAllDistrictPopulationResults(String queryString, String district){
         StringBuilder strResultAll = new StringBuilder();
         ConnectionManager dbCon = new ConnectionManager();
@@ -328,6 +390,14 @@ public class genericReportDAOImpl implements genericReportDAO {
                 "from world.city WHERE LOWER(world.city.Name) = '" + city.toLowerCase() + "'" ;
         return getAllCityPopulationResults(strSelect, city);
     }
+
+    /**
+     * Get all city population results string.
+     *
+     * @param queryString the query string
+     * @param city        the city
+     * @return the string
+     */
     public String getAllCityPopulationResults(String queryString, String city){
         StringBuilder strResultAll = new StringBuilder();
         ConnectionManager dbCon = new ConnectionManager();
