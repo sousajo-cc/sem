@@ -41,7 +41,7 @@
 | 26  | The population of the world. | Yes |   ![26-imgReal](images/26-img.png)  |
 | 27  | The population of a continent. | Yes |   ![27-imgReal](images/27-img.png)  |
 | 28  | The population of a region. | Yes |   ![28-imgReal](images/28-img.png)  |
-| 29  | The population of a country. |   |
-| 30  | The population of a district. |   |
-| 31  | The population of a city. |   |
+| 29  | The population of a country. | Yes |![29-populationCountry](images/29-populationCountry.png)  |
+| 30  | The population of a district. | Yes |![30-populationDistrict](images/30-populationDistrict.png)  |
+| 31  | The population of a city. | Yes |![31-populationCity](images/31-populationCity.png)  |
 | 32  | Provide the Number of People who speak Chinese, English, Hindi, Spanish and Arabic, from the Greatest Number to Smallest, including the Percentage of the World Population. | Yes |   ![32-imgReal](images/32-img.png)  |
