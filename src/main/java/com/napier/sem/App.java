@@ -201,6 +201,9 @@ public class App {
             }
             @Override
             public void createReportFor(Ctry name){
+                genericReportDAO g = new genericReportDAOImpl();
+                genericReport r = new genericReport(g);
+                r.generateReport(name);
             }
             @Override
             public void createReportFor(District name){

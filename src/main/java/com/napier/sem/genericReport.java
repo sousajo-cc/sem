@@ -60,4 +60,12 @@ public class genericReport {
     public void generateReport(Region name){
         this.populationReportForARegion(name);
     }
+
+    void populationReportForACountry(Ctry name){
+        String r = this.g.getAllPopulationInACountry(name.name);
+        System.out.println(r);
+    }
+    public void generateReport(Ctry name){
+        this.populationReportForACountry(name);
+    }
 }
