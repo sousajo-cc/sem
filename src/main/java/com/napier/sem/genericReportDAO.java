@@ -11,4 +11,6 @@ public interface genericReportDAO {
     String getAllPopulationInARegion(String region);
     Map<String, String> getLanguagesInfo();
     String getAllPopulationInACountry(String country);
+    String getAllPopulationInADistrict(String district);
+    String getAllPopulationInACity(String city);
 }

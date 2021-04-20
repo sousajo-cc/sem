@@ -58,6 +58,9 @@ public class App {
             @Override
             public void createReportFor(District name, numberOfCountries topN){
             }
+            @Override
+            public void createReportFor(Cty name){
+            }
         },
         CAPITALCITY() {
             @Override
@@ -107,6 +110,9 @@ public class App {
             }
             @Override
             public void createReportFor(District name, numberOfCountries topN){
+            }
+            @Override
+            public void createReportFor(Cty name){
             }
         },
         CITY() {
@@ -170,6 +176,9 @@ public class App {
                 Report r = new CityReport(City);
                 r.generateReport(name, topN);
             }
+            @Override
+            public void createReportFor(Cty name){
+            }
         },
         GENERIC_REPORTS() {
             @Override
@@ -207,12 +216,21 @@ public class App {
             }
             @Override
             public void createReportFor(District name){
+                genericReportDAO g = new genericReportDAOImpl();
+                genericReport r = new genericReport(g);
+                r.generateReport(name);
             }
             @Override
             public void createReportFor(Ctry name, numberOfCountries topN){
             }
             @Override
             public void createReportFor(District name, numberOfCountries topN){
+            }
+            @Override
+            public void createReportFor(Cty name){
+                genericReportDAO g = new genericReportDAOImpl();
+                genericReport r = new genericReport(g);
+                r.generateReport(name);
             }
         },
         ;
@@ -230,6 +248,7 @@ public class App {
         public abstract void createReportFor(District name);
         public abstract void createReportFor(Ctry name, numberOfCountries topN);
         public abstract void createReportFor(District name, numberOfCountries topN);
+        public abstract void createReportFor(Cty name);
     }
 
     /**
@@ -256,6 +275,8 @@ public class App {
             t.createReportFor(d);
             t.createReportFor(ctry, n);
             t.createReportFor(d, n);
+            Cty ct = new Cty("Paris");
+            t.createReportFor(ct);
         }
     }
 }

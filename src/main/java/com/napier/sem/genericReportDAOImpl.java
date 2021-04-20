@@ -294,4 +294,60 @@ public class genericReportDAOImpl implements genericReportDAO {
         }
         return strResultAll.toString();
     }
+
+    public String getAllPopulationInADistrict(String district) {
+        String strSelect = "select sum(world.city.Population) as totalPopulation " +
+                "from world.city WHERE LOWER(world.city.District) = '" + district.toLowerCase() + "'" ;
+        return getAllDistrictPopulationResults(strSelect, district);
+    }
+    public String getAllDistrictPopulationResults(String queryString, String district){
+        StringBuilder strResultAll = new StringBuilder();
+        ConnectionManager dbCon = new ConnectionManager();
+        Connection con = dbCon.getConnection();
+        try {
+            Statement stmt = con.createStatement();
+
+            ResultSet results = stmt.executeQuery(queryString);
+            strResultAll.append("Number of people in the district: ");
+            strResultAll.append(district);
+            strResultAll.append("\n");
+            while (results.next()) {
+                strResultAll.append("\nTotal Population:")
+                        .append(results.getString("totalPopulation"));
+            }
+            results.close();
+            con.close();
+        } catch (SQLException e) {
+            return "";
+        }
+        return strResultAll.toString();
+    }
+
+    public String getAllPopulationInACity(String city) {
+        String strSelect = "select sum(world.city.Population) as totalPopulation " +
+                "from world.city WHERE LOWER(world.city.Name) = '" + city.toLowerCase() + "'" ;
+        return getAllCityPopulationResults(strSelect, city);
+    }
+    public String getAllCityPopulationResults(String queryString, String city){
+        StringBuilder strResultAll = new StringBuilder();
+        ConnectionManager dbCon = new ConnectionManager();
+        Connection con = dbCon.getConnection();
+        try {
+            Statement stmt = con.createStatement();
+
+            ResultSet results = stmt.executeQuery(queryString);
+            strResultAll.append("Number of people in the city: ");
+            strResultAll.append(city);
+            strResultAll.append("\n");
+            while (results.next()) {
+                strResultAll.append("\nTotal Population:")
+                        .append(results.getString("totalPopulation"));
+            }
+            results.close();
+            con.close();
+        } catch (SQLException e) {
+            return "";
+        }
+        return strResultAll.toString();
+    }
 }
