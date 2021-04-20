@@ -9,7 +9,7 @@
 
 ---
 
-> [Include No. Here] requirements of 32 have been implemented, which is [Include % Here].
+> 32 requirements of 32 have been implemented, which is 100%.
 
 | ID | Name        | Met         | Screenshot      |
 |:---:|:------------|:-------------:|:--------------|
